@@ -1,9 +1,9 @@
 .title {
-  font-size: 2rem;
-  font-family: var(--font-mono);
+  font-family: 'Just Another Hand';
+  font-size: 74px;
   background-color: #AEB02A;
   padding: 20px;
   color: white;
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
