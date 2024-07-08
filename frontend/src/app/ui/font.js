@@ -1,10 +1,9 @@
-import { JustAnotherHand } from '@next/font/google';
+import { Roboto } from 'next/font/google';
 
-const justAnotherHand = JustAnotherHand({
+const Roboto = Roboto ({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
 });
 
-export const justAnotherHandClass = justAnotherHand.className;
-
+export default Roboto;
