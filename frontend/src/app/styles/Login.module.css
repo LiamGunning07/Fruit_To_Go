@@ -1,0 +1,61 @@
+/* src/styles/Login.module.css */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif; /* Make sure to include sans-serif for fallback */
+  font-size: 36px;
+  background-color: #AEB02A;
+  padding: 20px;
+  color: white;
+  width: 100%;
+  height: 100vh; /* Ensures the container takes up the full height of the viewport */
+}
+
+.login h1{
+  margin-bottom: 150px;
+}
+
+.loginForm {
+  background: white;
+  display: flex; /* Add display flex */
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px; /* Constrain the form width */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Add border radius to match other elements */
+}
+
+.loginForm h1 {
+  color: black;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loginForm input {
+  width: 100%; /* Adjust to fill the container */
+  height: 30px;
+  margin-bottom: 10px; /* Add margin for spacing between inputs */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 8px; /* Rounded edges */
+  padding: 5px; /* Add padding for better text input */
+}
+
+.loginForm button {
+  padding: 10px;
+  width: 100%; /* Adjust to fill the container */
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 8px; /* Rounded edges */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.loginForm button:hover {
+  background-color: #005bb5; /* Add hover effect */
+}

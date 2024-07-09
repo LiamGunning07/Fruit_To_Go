@@ -24,4 +24,5 @@
 .links li {
  font-family: 'Roboto';
  padding-right: 30px;
+ cursor: pointer;
 }
