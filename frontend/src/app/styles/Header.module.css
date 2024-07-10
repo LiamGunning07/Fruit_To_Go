@@ -36,3 +36,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.login li {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0px;
+}

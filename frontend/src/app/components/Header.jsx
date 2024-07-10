@@ -9,6 +9,9 @@ export default function Header() {
   const handleLoginClick = () => {
     router.push('/login');
   };
+  const handleSignUpClick = () => {
+    router.push('/signup');
+  };
 
   return (
     <div>
@@ -18,10 +21,13 @@ export default function Header() {
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
           <ul className={styles.links}> 
-            <li> Fruit </li>
-            <li> Beverages </li>
-            <li> Cart </li>
-            <li onClick={handleLoginClick}> Login </li>
+            <li><u> Fruit </u></li>
+            <li><u> Beverages </u></li>
+            <li><u> Cart </u></li>
+            <div className={styles.login}>
+              <li onClick={handleLoginClick}><u>Login</u></li>
+              <li onClick={handleSignUpClick}><u>Sign Up</u></li>
+            </div>
           </ul>
       </div>
     </div>
