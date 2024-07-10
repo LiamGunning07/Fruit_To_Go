@@ -1,5 +1,5 @@
 import Header from ".//components/Header";
-import styles from '../app/globals.css'
+import '../app/styles/globals.css'
 
 export default function Home() {
   return (
