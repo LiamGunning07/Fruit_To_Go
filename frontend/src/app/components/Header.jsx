@@ -16,17 +16,25 @@ export default function Header() {
     router.push('/fruit')
   }
 
+  const handleHomeClick = () => {
+    router.push('/')
+  }
+
+  const handleCartClick = () => {
+    router.push('/cart')
+  }
+
   return (
     <div>
       <div className={styles.header}>
-        <div className={styles.title}>
+        <div className={styles.title} onClick={handleHomeClick}>
           <h1> The Fruit To Go</h1>
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
           <ul className={styles.links}> 
             <li onClick={handleFruitClick}><u> Fruit </u></li>
             <li><u> Beverages </u></li>
-            <li><u> Cart </u></li>
+            <li onClick={handleCartClick}><u> Cart </u></li>
             <div className={styles.login}>
               <li onClick={handleLoginClick}><u>Login</u></li>
               <li onClick={handleSignUpClick}><u>Sign Up</u></li>

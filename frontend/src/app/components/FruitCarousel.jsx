@@ -17,6 +17,7 @@ const images = [
 
 const FruitCarousel = () => {
     return (
+        <>
         <div className={styles.container}>
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
@@ -38,7 +39,8 @@ const FruitCarousel = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </div>     
+        </>
     );
 };
 
