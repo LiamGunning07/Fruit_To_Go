@@ -1,7 +1,6 @@
-import dynamic from 'next/dynamic';
+import '../app/ui/fontawesome'
 import Header from ".//components/Header";
 import '../app/styles/globals.css'
-// const FruitCarousel = dynamic(() => import ('./components/FruitCarousel'), { ssr: false });
 import FruitCarousel from './components/FruitCarousel';
 
 export default function Home() {
