@@ -4,6 +4,8 @@
 }
 .faTrash:hover{
   color: red;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: translateY(-2px);
 }
 
 .faPlus{
@@ -12,6 +14,8 @@
 }
 .faPlus:hover{
   color: green;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: translateY(-2px);
 }
 
 .faMinus{
@@ -20,6 +24,8 @@
 }
 .faMinus:hover{
   color: red;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: translateY(-2px);
 }
 
 .container {

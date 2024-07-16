@@ -3,7 +3,7 @@ import styles from "../styles/Cart.module.css"
 import '../styles/globals.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
-import CartCard from "../components/CartCard";
+import CartList from "../components/CartList";
 
 export default function Cart() {
   return (
@@ -14,7 +14,7 @@ export default function Cart() {
         <h1> Your Cart </h1>
       </div>
       <div>
-        <CartCard />
+        <CartList />
       </div>
     </div>
   )
