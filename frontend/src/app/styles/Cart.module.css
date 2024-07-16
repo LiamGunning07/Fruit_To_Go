@@ -6,7 +6,7 @@
   flex-direction: column; /* Stack icon and text vertically */
   margin: 20px auto; /* Center the cart horizontally */
   width: 200px; /* Set a fixed width for the cart */
-  height: 150px;
+  height: 100px;
 }
 
 .header {
