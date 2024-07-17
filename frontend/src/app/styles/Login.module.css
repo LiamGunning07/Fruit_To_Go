@@ -74,3 +74,14 @@
 .loginForm span:hover{
   color: #005bb5;
 }
+
+.homepage {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  cursor: pointer; /* Add this if you want a pointer cursor on hover */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+  font-family: Roboto;
+}
