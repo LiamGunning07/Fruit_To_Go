@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBackward} from '@fortawesome/free-solid-svg-icons'
+import {faHouse} from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/Login.module.css'
 import '../styles/globals.css'
 
@@ -20,7 +20,7 @@ export default function SignUp() {
     <div className={styles.login}>
       <div className={styles.homepage} onClick={handleHomeClick}>
         <h1> 
-          <FontAwesomeIcon icon={faBackward} />
+          <FontAwesomeIcon icon={faHouse} />
            Home Page 
         </h1> 
       </div>

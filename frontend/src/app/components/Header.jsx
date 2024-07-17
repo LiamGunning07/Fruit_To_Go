@@ -1,7 +1,8 @@
 "use client";
-
 import { useRouter } from 'next/navigation';
 import styles from '../styles/Header.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAppleWhole, faBottleDroplet, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
   const router = useRouter();
@@ -32,12 +33,22 @@ export default function Header() {
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
           <ul className={styles.links}> 
-            <li onClick={handleFruitClick}><u> Fruit </u></li>
-            <li><u> Beverages </u></li>
-            <li onClick={handleCartClick}><u> Cart </u></li>
+            <li onClick={handleFruitClick}>
+              <FontAwesomeIcon icon={faAppleWhole} />
+            <u> Fruit </u></li>
+            <li>
+              <FontAwesomeIcon icon={faBottleDroplet} />
+            <u> Beverages </u></li>
+            <li onClick={handleCartClick}>
+              <FontAwesomeIcon icon={faCartShopping}/> 
+            <u> Cart </u></li>
             <div className={styles.login}>
-              <li onClick={handleLoginClick}><u>Login</u></li>
-              <li onClick={handleSignUpClick}><u>Sign Up</u></li>
+            <li onClick={handleLoginClick}>
+              <FontAwesomeIcon icon={faUser} /> 
+            <u>Login</u></li>
+            <li onClick={handleSignUpClick}>
+              <FontAwesomeIcon icon={faUser} />
+            <u>Sign Up</u></li>
             </div>
           </ul>
       </div>
