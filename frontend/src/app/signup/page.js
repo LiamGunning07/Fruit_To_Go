@@ -12,10 +12,10 @@ export default function SignUp() {
   const handleLoginClick = () => {
     router.push('/login');
   };
-
   const handleHomeClick = () => {
     router.push('/')
   }
+
   return (
     <div className={styles.login}>
       <div className={styles.homepage} onClick={handleHomeClick}>

@@ -1,5 +1,4 @@
-import FruitCard from '../components/FruitCard'
-import styles from '../styles/FruitCard.module.css'
+import FruitList from '../components/FruitList'
 import backgroundImg from '../assets/background.jpg'
 import Header from '../components/Header'
 import '../styles/globals.css'
@@ -74,18 +73,8 @@ export default function Fruit() {
   return (
     <>
     <Header />
-    <div className={styles.FruitList}>
-      {fruits.map((fruit, index) => (
-        <FruitCard 
-          key={index}
-          title={fruit.title}
-          price={fruit.price}
-          img={fruit.img}
-          quantity={fruit.quantity}
-          description={fruit.description}
-          />
-      ))}
-    </div>
+    <FruitList />
+    
     </>
   )
 
