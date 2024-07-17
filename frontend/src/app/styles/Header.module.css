@@ -39,8 +39,12 @@
   cursor: pointer;
 }
 
-.login li {
+.login {
   display: flex;
   flex-direction: row;
-  padding-left: 0px;
+}
+
+.login li{
+  padding-left: 10px;
+  padding-right: 25px;
 }
