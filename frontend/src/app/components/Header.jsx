@@ -25,6 +25,10 @@ export default function Header() {
     router.push('/cart')
   }
 
+  const handleBeverageClick = () => {
+    router.push('/beverages')
+  }
+
   return (
     <div>
       <div className={styles.header}>
@@ -36,7 +40,7 @@ export default function Header() {
             <li onClick={handleFruitClick}>
               <FontAwesomeIcon icon={faAppleWhole} />
             <u> Fruit </u></li>
-            <li>
+            <li onClick={handleBeverageClick}>
               <FontAwesomeIcon icon={faBottleDroplet} />
             <u> Beverages </u></li>
             <li onClick={handleCartClick}>
