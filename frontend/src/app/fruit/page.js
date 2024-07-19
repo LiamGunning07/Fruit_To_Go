@@ -69,6 +69,7 @@ const fruits = [{
 ];
 
 export default function Fruit() {
+ 
 
   return (
     <>

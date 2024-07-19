@@ -1,3 +1,5 @@
+"use client"
+import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
 import styles from '../styles/FruitCard.module.css'
 import backgroundImg from '../assets/background.jpg'
@@ -70,6 +72,27 @@ const fruits = [{
     description: 'Delicious mangoes, great for smoothies and desserts.',
   }
 ];
+const [products, setProducts] = useState([]);
+const [loading, setLoading] = useState(true);
+
+
+useEffect(() => {
+  fetch('/api/fruits')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setProducts(data);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error('Error fetching products:', error);
+      setLoading(false);
+    });
+}, []);
+
+if (loading) {
+  return <div>Loading...</div>;
+}
 
   return (
     <div>
@@ -88,3 +111,14 @@ const fruits = [{
     </div>
   )
 }
+
+// {fruits.map((fruit, index) => (
+//   <FruitCard 
+//     key={index}
+//     title={fruit.title}
+//     price={fruit.price}
+//     img={fruit.img}
+//     quantity={fruit.quantity}
+//     description={fruit.description}
+//     />
+//   ))}
