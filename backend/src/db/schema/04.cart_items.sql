@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS cart_items CASCADE;
+
 CREATE TABLE cart_items (
     cart_item_id INT AUTO_INCREMENT PRIMARY KEY,
     cart_id INT NOT NULL,

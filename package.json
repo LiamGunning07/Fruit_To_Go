@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/LiamGunning07/Fruit_To_Go/issues"
   },
-  "homepage": "https://github.com/LiamGunning07/Fruit_To_Go#readme"
+  "homepage": "https://github.com/LiamGunning07/Fruit_To_Go#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
 }
