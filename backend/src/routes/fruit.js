@@ -6,6 +6,7 @@ const { getAllFruits } = require('../db/queries/fruits')
 router.get('/', async (req, res) => {
   try {
     const fruits = await getAllFruits();
+    console.log(fruits);
     res.json(fruits);
   } catch (err) {
     console.error('Error fetching products:', err);

@@ -1,4 +1,4 @@
-const pool = require('../db/index');
+const pool = require('../index');
 const getAllFruits = async () => {
   try {
     const res = await pool.query('SELECT * FROM products');
