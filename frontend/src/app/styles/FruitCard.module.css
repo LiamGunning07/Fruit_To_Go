@@ -34,3 +34,33 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.container:hover .overlay {
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.container:hover .addToCart {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: black;
+  opacity: .75;
+  color: white;
+}
+
+.addToCart{
+  opacity: 0;
+}
