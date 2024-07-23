@@ -119,14 +119,3 @@ if (error) {
     </div>
   )
 }
-
-// {fruits.map((fruit, index) => (
-//   <FruitCard 
-//     key={index}
-//     title={fruit.title}
-//     price={fruit.price}
-//     img={fruit.img}
-//     quantity={fruit.quantity}
-//     description={fruit.description}
-//     />
-//   ))}

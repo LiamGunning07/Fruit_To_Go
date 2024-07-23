@@ -85,3 +85,10 @@
   font-size: 20px;
   font-family: Roboto;
 }
+
+.message{
+  font-family: Roboto;
+  font-size: 32px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}

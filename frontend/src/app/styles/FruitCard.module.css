@@ -17,7 +17,6 @@
 }
 
 .container:hover {
-  transform: translateY(-10px); /* Move the card up */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow for pop-up effect */
 }
 
@@ -37,16 +36,12 @@
 
 
 .container:hover .overlay {
-  opacity: 1;
   position: absolute;
   width: 100%;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .container:hover .addToCart {
@@ -57,7 +52,7 @@
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   background-color: black;
-  opacity: .75;
+  opacity: .8;
   color: white;
 }
 

@@ -1,6 +1,6 @@
 import styles from '../styles/FruitCard.module.css'
 
-export default function FruitCard({ title, price, img, quantity, description}) {
+export default function FruitCard({ title, price, img, description}) {
 
   return (
         <div className={styles.container}>
