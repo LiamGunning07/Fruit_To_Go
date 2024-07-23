@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllFruits } = require('../db/queries/fruits')
+const { getAllFruits } = require('../db/queries/helpers')
 
 
 router.get('/', async (req, res) => {
