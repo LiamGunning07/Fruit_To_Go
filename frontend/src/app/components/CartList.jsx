@@ -5,8 +5,9 @@ export default function CartList() {
   return (
     <div className={styles.container}>
       <CartCard />
+      <CartCard />
       <div className={styles.summary}>
-        <h1> Total: Total </h1>
+        <h1> Total: $135 </h1>
         <button> Proceed To Checkout </button>
       </div>
     </div>

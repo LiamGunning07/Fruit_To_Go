@@ -21,3 +21,8 @@
   font-size: 72px;
   font-family: Roboto;
 }
+
+.cartlist_container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,33 @@
+.container {
+  margin: 20px;
+}
+
+.searchbar {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: width 0.3s ease;
+}
+
+.searchbar:focus {
+  width: 400px;
+  outline: none;
+  border-color: #666;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #555;
+}

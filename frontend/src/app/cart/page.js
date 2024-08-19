@@ -13,7 +13,7 @@ export default function Cart() {
         <FontAwesomeIcon icon={faCartShopping} className={styles.faCartShopping} />
         <h1> Your Cart </h1>
       </div>
-      <div>
+      <div className={styles.cartlist_container}>
         <CartList />
       </div>
     </div>
