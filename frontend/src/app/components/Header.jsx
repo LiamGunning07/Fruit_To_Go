@@ -8,12 +8,13 @@ import { faAppleWhole, faBottleDroplet, faCartShopping, faUser } from '@fortawes
 export default function Header() {
   const router = useRouter();
 
-  const handleLoginClick = () => {
-    router.push('/login');
-  };
-  const handleSignUpClick = () => {
-    router.push('/signup');
-  };
+  // const handleLoginClick = () => {
+  //   router.push('/login');
+  // };
+  // const handleSignUpClick = () => {
+  //   router.push('/signup');
+  // };
+
   const handleFruitClick = () => {
     router.push('/fruit')
   }
@@ -34,7 +35,7 @@ export default function Header() {
     <div>
       <div className={styles.header}>
         <div className={styles.title} onClick={handleHomeClick}>
-          <h1> Fruit 2 Go</h1>
+          <h1> Fruit <span className={styles.logo}> 2 </span> Go</h1>
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
         <div>
