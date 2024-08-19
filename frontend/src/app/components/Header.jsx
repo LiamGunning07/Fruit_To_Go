@@ -33,7 +33,7 @@ export default function Header() {
     <div>
       <div className={styles.header}>
         <div className={styles.title} onClick={handleHomeClick}>
-          <h1> The Fruit To Go</h1>
+          <h1> Fruit 2 Go</h1>
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
           <ul className={styles.links}> 
