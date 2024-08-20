@@ -1,12 +1,10 @@
 import styles from "../styles/SearchBar.module.css";
 import { useState } from "react";
 
-export default function SearchBar() {
+export default function SearchBar({setQuery, setResults, query, results}) {
 
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
 
-  const handleInputChange = (event) => {
+const handleInputChange = (event) => {
     setQuery(event.target.value);
     console.log("query", query)
   };
@@ -16,7 +14,6 @@ export default function SearchBar() {
 
     try {
         const response = await fetch(`http://localhost:3001/api/search?q=${query}`);
-        console.log('API call response', response)
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -43,9 +40,13 @@ export default function SearchBar() {
         Search
       </button>
       <ul>
-        {results.map((result, index) => (
-          <li key={index}>{result.name}</li>
-        ))}
+      {results && results.length > 0 ? (
+          results.map((result, index) => (
+            <li key={index}>{result.name}</li>
+          ))
+        ) : (
+          <span> Search for an Item </span>
+        )}
       </ul>
     </div>
   );

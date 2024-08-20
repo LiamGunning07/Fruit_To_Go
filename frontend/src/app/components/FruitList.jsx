@@ -17,12 +17,10 @@ useEffect(() => {
     try {
       const response = await fetch('http://localhost:3001/api/fruits');
       
-      // Check if the response is ok (status in the range 200-299)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // Parse the response as JSON
       const data = await response.json();
       setFruits(data);
     } catch (error) {

@@ -5,15 +5,8 @@ import styles from '../styles/Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 
-export default function Header() {
+export default function Header ({ setQuery, setResults, query, results}) {
   const router = useRouter();
-
-  // const handleLoginClick = () => {
-  //   router.push('/login');
-  // };
-  // const handleSignUpClick = () => {
-  //   router.push('/signup');
-  // };
 
   const handleFruitClick = () => {
     router.push('/fruit')
@@ -39,7 +32,11 @@ export default function Header() {
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
         <div>
-          <SearchBar />
+          <SearchBar 
+            setQuery={setQuery}
+            query={query}
+            results={results}
+            setResults={setResults}/>
         </div>
           <ul className={styles.links}> 
             <li onClick={handleFruitClick}>
@@ -51,14 +48,6 @@ export default function Header() {
             <li onClick={handleCartClick}>
               <FontAwesomeIcon icon={faCartShopping}/> 
             <u> Cart </u></li>
-                {/* <div className={styles.login}>
-                <li onClick={handleLoginClick}>
-                <FontAwesomeIcon icon={faUser} /> 
-                <u>Login</u></li>
-                <li onClick={handleSignUpClick}>
-                <FontAwesomeIcon icon={faUser} />
-                <u>Sign Up</u></li>
-                </div> */}
           </ul>
       </div>
     </div>
