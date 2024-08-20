@@ -43,4 +43,5 @@ async function addUserIfNotExists(email, password) {
   }
 }
 
+
 module.exports = { getAllFruits, addUserIfNotExists };
