@@ -8,7 +8,7 @@ export default function FruitCard({ title, price, img, description}) {
           <h2 className={styles.price}>${price}</h2>
           <img src={img} className={styles.img} alt={title} />
           <p className={styles.description}>{description}</p>
-          <div classname={styles.overlay}>
+          <div className={styles.overlay}>
             <button className={styles.addToCart}>Add to Cart</button>
           </div>
         </div>

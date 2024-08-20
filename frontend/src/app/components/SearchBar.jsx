@@ -36,7 +36,7 @@ const handleInputChange = (event) => {
         placeholder="Search..."
         className={styles.searchbar}
       />
-      <button onClick={handleSearchClick}>
+      <button className={styles.button} onClick={handleSearchClick}>
         Search
       </button>
       <ul>
