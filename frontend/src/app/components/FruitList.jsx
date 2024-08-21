@@ -2,14 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
 import styles from '../styles/FruitCard.module.css'
-import backgroundImg from '../assets/background.jpg'
 import '../styles/globals.css'
 
 
 export default function FruitList({fruits, setFruits}) {
-
-
-
+  
 
 useEffect(() => {
   const fetchFruits = async () => {
@@ -29,7 +26,7 @@ useEffect(() => {
   };
 
   fetchFruits();
-}, []);
+},[]);
 
   return (
     <div>

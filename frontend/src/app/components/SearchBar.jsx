@@ -39,15 +39,15 @@ const handleInputChange = (event) => {
       <button className={styles.button} onClick={handleSearchClick}>
         Search
       </button>
-      <ul>
-      {results && results.length > 0 ? (
-          results.map((result, index) => (
-            <li key={index}>{result.name}</li>
-          ))
-        ) : (
-          <span> Search for an Item </span>
-        )}
-      </ul>
+      <div className={styles.results}>
+        <ul >
+        {results && results.length > 0 ? (
+            <span> Results:{results.length} </span>
+          ) : (
+            <span> Search for an Item </span>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }

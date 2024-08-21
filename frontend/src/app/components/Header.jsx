@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import SearchBar from './SearchBar';
 import styles from '../styles/Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAppleWhole, faBottleDroplet, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
 
 export default function Header ({ setQuery, setResults, query, results}) {
   const router = useRouter();
