@@ -5,16 +5,14 @@ import { useState, useEffect } from 'react';
 import Header from ".//components/Header";
 import FruitCarousel from './components/FruitCarousel';
 import FruitList from './components/FruitList';
+import { useGlobalState } from './Context/GlobalStateContext';
 
 
 export default function Home() {
-
-const [query, setQuery] = useState('');
-const [results, setResults] = useState([]);
-const [fruits, setFruits] = useState([]);
+const {fruits, setFruits, query, setQuery, results, setResults} = useGlobalState()
 
 useEffect(() => {
-  if (results.length > 0) {
+  if (results.length >= 0) {
     setFruits(results);
   }
 }, [results]);
@@ -22,7 +20,9 @@ useEffect(() => {
 
   return (
     <div>
-      <Header 
+      <Header
+        fruits={fruits}
+        setFruits={setFruits}
         setQuery={setQuery}
         query={query}
         results={results}

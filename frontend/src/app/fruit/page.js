@@ -1,5 +1,4 @@
 "use client"
-import { useContext } from 'react'
 import FruitList from '../components/FruitList'
 import Header from '../components/Header'
 import { useGlobalState } from '../Context/GlobalStateContext'
@@ -17,7 +16,6 @@ const {fruits, setFruits} = useGlobalState([])
     <FruitList 
     fruits={fruits}
     setFruits={setFruits} />
-     
     </>
   )
 

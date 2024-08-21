@@ -1,4 +1,5 @@
 "use client"
+import { fetchFruits } from '../helpers/functions';
 import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
 import styles from '../styles/FruitCard.module.css'
@@ -8,25 +9,10 @@ import '../styles/globals.css'
 export default function FruitList({fruits, setFruits}) {
   
 
+// Inside the component
 useEffect(() => {
-  const fetchFruits = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/api/fruits');
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setFruits(data);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      
-    }
-  };
-
-  fetchFruits();
-},[]);
+  fetchFruits(setFruits);
+}, []);
 
   return (
     <div>

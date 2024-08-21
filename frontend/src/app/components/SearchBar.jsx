@@ -1,8 +1,8 @@
+import { useGlobalState } from "../Context/GlobalStateContext";
 import styles from "../styles/SearchBar.module.css";
-import { useState } from "react";
 
-export default function SearchBar({setQuery, setResults, query, results}) {
-
+export default function SearchBar() {
+const {query, setQuery, results, setResults} = useGlobalState()
 
 const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -22,7 +22,7 @@ const handleInputChange = (event) => {
         setResults(data);
     } catch (error) {
         console.error("Error fetching search results:", error);
-        setResults([]);  // Clear results on error
+        setResults();  // Clear results on error
     }
 };
 

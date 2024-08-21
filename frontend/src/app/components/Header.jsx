@@ -4,23 +4,33 @@ import SearchBar from './SearchBar';
 import styles from '../styles/Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import { useGlobalState } from '../Context/GlobalStateContext';
 
-export default function Header ({ setQuery, setResults, query, results}) {
+export default function Header () {
   const router = useRouter();
+  const {query, setQuery, results, setResults} = useGlobalState()
 
   const handleFruitClick = () => {
+    setResults([])
+    setQuery('');
     router.push('/fruit')
   }
 
   const handleHomeClick = () => {
+    setResults([])
+    setQuery('');
     router.push('/')
   }
 
   const handleCartClick = () => {
+    setQuery('');
+    setResults([])
     router.push('/cart')
   }
 
   const handleBeverageClick = () => {
+    setQuery('');
+    setResults([])
     router.push('/beverages')
   }
 
