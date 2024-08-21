@@ -6,10 +6,9 @@ import backgroundImg from '../assets/background.jpg'
 import '../styles/globals.css'
 
 
-export default function FruitList() {
+export default function FruitList({fruits, setFruits}) {
 
-const [fruits, setFruits] = useState([]);
-const [error, setError] = useState(null);
+
 
 
 useEffect(() => {
@@ -25,16 +24,12 @@ useEffect(() => {
       setFruits(data);
     } catch (error) {
       console.error('Error fetching products:', error);
-      setError(error);
+      
     }
   };
 
   fetchFruits();
 }, []);
-
-if (error) {
-  return <div>Error fetching products: {error.message}</div>;
-}
 
   return (
     <div>
