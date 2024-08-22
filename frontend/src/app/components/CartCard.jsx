@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/CartCard.module.css'
+import { useGlobalState } from "../Context/GlobalStateContext";
 
 export default function CartCard() {
+  const {cart,setCart} = useGlobalState()
   return (
     <div className={styles.outer}>
       <div className={styles.container}>

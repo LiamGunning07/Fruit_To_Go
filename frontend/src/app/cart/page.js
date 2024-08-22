@@ -3,9 +3,12 @@ import styles from "../styles/Cart.module.css"
 import '../styles/globals.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
+import { useGlobalState } from "../Context/GlobalStateContext";
 import CartList from "../components/CartList";
 
 export default function Cart() {
+const { cart, setCart} = useGlobalState()
+
   return (
     <div>
       <Header />

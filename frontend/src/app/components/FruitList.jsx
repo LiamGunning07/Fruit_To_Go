@@ -20,6 +20,7 @@ useEffect(() => {
       {fruits.map((fruit, index) => (
         <FruitCard 
           key={index}
+          product_id={fruit.product_id}
           title={fruit.title}
           price={fruit.price}
           img={fruit.img}
