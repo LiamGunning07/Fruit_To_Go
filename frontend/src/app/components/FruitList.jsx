@@ -1,5 +1,5 @@
 "use client"
-import { fetchFruits } from '../helpers/functions';
+import { fetchAllFruits } from '../helpers/functions';
 import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
 import styles from '../styles/FruitCard.module.css'
@@ -11,7 +11,7 @@ export default function FruitList({fruits, setFruits}) {
 
 // Inside the component
 useEffect(() => {
-  fetchFruits(setFruits);
+  fetchAllFruits(setFruits);
 }, []);
 
   return (

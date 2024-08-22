@@ -1,4 +1,4 @@
-export async function fetchFruits(setFruits) {
+export async function fetchAllFruits(setFruits) {
   try {
     const response = await fetch('http://localhost:3001/api/fruits');
     

@@ -5,10 +5,11 @@ import styles from '../styles/Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import { useGlobalState } from '../Context/GlobalStateContext';
+import { fetchAllFruits } from '../helpers/functions';
 
 export default function Header () {
   const router = useRouter();
-  const {query, setQuery, results, setResults} = useGlobalState()
+  const {query, setQuery, results, setResults, setFruits} = useGlobalState()
 
   const handleFruitClick = () => {
     setResults([])
@@ -17,6 +18,7 @@ export default function Header () {
   }
 
   const handleHomeClick = () => {
+    fetchAllFruits(setFruits)
     setResults([])
     setQuery('');
     router.push('/')
