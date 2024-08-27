@@ -1,9 +1,9 @@
+'use client'
 import styles from '../styles/FruitCard.module.css'
-import { useEffect } from 'react';
 import { useGlobalState } from '../Context/GlobalStateContext';
 
 export default function FruitCard({ title, price, img, description, product_id}) {
-const {cart, setCart} = useGlobalState()
+  const { cart, setCart } = useGlobalState();
 
 const addToCart = (product_id) => {
   const existingItem = cart.find(item => item.product_id === product_id);
@@ -21,9 +21,6 @@ const addToCart = (product_id) => {
   }
 };
 
-useEffect(() => {
-  console.log("Cart updated:", cart);
-}, [cart]); // This will log the cart state whenever it changes
 
   return (
         <div className={styles.container}>

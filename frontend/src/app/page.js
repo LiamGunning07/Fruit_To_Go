@@ -9,7 +9,7 @@ import { useGlobalState } from './Context/GlobalStateContext';
 
 
 export default function Home() {
-const {fruits, setFruits, query, setQuery, results, setResults} = useGlobalState()
+const {fruits, setFruits, query, setQuery, results, setResults } = useGlobalState()
 
 useEffect(() => {
   if (results.length >= 0) {

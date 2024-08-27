@@ -6,13 +6,13 @@ const GlobalStateContext = createContext();
 
 // Create a provider component
 export function GlobalStateProvider({ children }) {
+  
   // Define all the states you want to manage globally
+  const [cart, setCart] = useState([]);
   const [fruits, setFruits] = useState([]);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
-  const [cart, setCart] = useState([])
   
-  // Add more states as needed
 
   return (
     <GlobalStateContext.Provider
@@ -23,7 +23,7 @@ export function GlobalStateProvider({ children }) {
         setResults,
         query,
         setQuery,
-        cart,
+        cart, 
         setCart
         // Add more state values and setters here
       }}
