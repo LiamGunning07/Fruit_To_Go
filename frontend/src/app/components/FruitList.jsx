@@ -7,8 +7,6 @@ import '../styles/globals.css'
 
 
 export default function FruitList({fruits, setFruits}) {
-  
-
 // Inside the component
 useEffect(() => {
   fetchAllFruits(setFruits);
@@ -21,7 +19,7 @@ useEffect(() => {
         <FruitCard 
           key={index}
           product_id={fruit.product_id}
-          title={fruit.title}
+          title={fruit.name}
           price={fruit.price}
           img={fruit.img}
           quantity={fruit.quantity}

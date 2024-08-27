@@ -9,7 +9,7 @@ import CartList from "../components/CartList";
 
 export default function Cart() {
   const { cart } = useGlobalState();
-
+  console.log('Cart info', cart)
   return (
     <div>
       <Header />
