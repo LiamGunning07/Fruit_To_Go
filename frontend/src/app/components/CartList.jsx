@@ -4,7 +4,6 @@ import styles from '../styles/CartList.module.css'
 
 
 export default function CartList({ cart }) {
-  console.log('Cart in CartList:', cart); // Debugging log
   
   const calculateTotal = () => {
     return cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
@@ -24,7 +23,6 @@ export default function CartList({ cart }) {
           title={item.title}
           price={item.price}
          />
-         
       ))}
       
       <div className={styles.summary}>

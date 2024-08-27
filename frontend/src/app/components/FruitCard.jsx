@@ -1,7 +1,7 @@
 'use client'
 import styles from '../styles/FruitCard.module.css'
 import { useGlobalState } from '../Context/GlobalStateContext';
-import { useEffect } from 'react';
+
 
 export default function FruitCard({ title, price, img, description, product_id}) {
   const { cart, setCart } = useGlobalState();
@@ -22,9 +22,6 @@ const addToCart = (product_id) => {
   }
 };
 
-useEffect(() => {
-  console.log('Cart updated:', cart);
-}, [cart]); // Dependency array to watch for changes in cartState
 
   return (
         <div className={styles.container}>

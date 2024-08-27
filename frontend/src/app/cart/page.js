@@ -9,7 +9,7 @@ import CartList from "../components/CartList";
 
 export default function Cart() {
   const { cart } = useGlobalState();
-  console.log('Cart info', cart)
+  
   return (
     <div>
       <Header />
@@ -18,7 +18,11 @@ export default function Cart() {
         <h1>Your Cart</h1>
       </div>
       <div className={styles.cartlist_container}>
-        <CartList cart={cart} />
+      {cart.length > 0 ? (
+          <CartList cart={cart} />
+        ) : (
+          <p className={styles.emptyMessage}>Your cart is empty.</p>
+        )}
       </div>
     </div>
   );
