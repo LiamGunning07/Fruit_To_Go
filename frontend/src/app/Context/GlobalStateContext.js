@@ -12,6 +12,7 @@ export function GlobalStateProvider({ children }) {
   const [fruits, setFruits] = useState([]);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
+  const [selectedOption, setSelectedOption] = useState('')
   
 
   return (
@@ -24,7 +25,9 @@ export function GlobalStateProvider({ children }) {
         query,
         setQuery,
         cart, 
-        setCart
+        setCart,
+        selectedOption, 
+        setSelectedOption
         // Add more state values and setters here
       }}
     >

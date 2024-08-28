@@ -1,0 +1,12 @@
+.heading h1{
+  font-size: 72px;
+  color: black;
+  margin: 50px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import { useGlobalState } from '../Context/GlobalStateContext';
 import { fetchAllFruits } from '../helpers/functions';
+import FilterDropDown from './FilterDropDown';
 
 export default function Header () {
   const router = useRouter();

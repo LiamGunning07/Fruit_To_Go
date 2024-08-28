@@ -1,7 +1,9 @@
 "use client"
+import FilterDropDown from '../components/FilterDropDown'
 import FruitList from '../components/FruitList'
 import Header from '../components/Header'
 import { useGlobalState } from '../Context/GlobalStateContext'
+import styles from '../styles/Fruit.module.css'
 import '../styles/globals.css'
 
 
@@ -13,6 +15,10 @@ const {fruits, setFruits} = useGlobalState([])
     <Header
     fruits={fruits}
     setFruits={setFruits}/>
+    <div className={styles.heading}>
+      <h1> All Fruits </h1>
+      <FilterDropDown/>
+    </div>
     <FruitList 
     fruits={fruits}
     setFruits={setFruits} />
