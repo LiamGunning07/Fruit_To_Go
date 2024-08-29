@@ -6,9 +6,9 @@ import { fetchAllFruitsAscending, fetchAllFruitsDescending } from '../helpers/fu
 
 export default function FilterDropDown() {
 
-  const { setFruits } = useGlobalState('');
+  const { selectedOption, setSelectedOption, setFruits } = useGlobalState('');
 
-  const [selectedOption, setSelectedOption] = useState('');
+  
 
   const handleFilterChange = async (event) => {
     const value = event.target.value;
