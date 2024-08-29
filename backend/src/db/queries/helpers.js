@@ -43,5 +43,27 @@ async function addUserIfNotExists(email, password) {
   }
 }
 
+const getAllFruitsAscending = async () => {
+  try {
+    const res = await pool.query('SELECT * FROM products ORDER BY price ASC');
+    console.log("res.rows", res.rows);
+    return res.rows;
+  } catch (err) {
+    console.error('Error fetching fruits:', err);
+    throw err;
+  }
+};
 
-module.exports = { getAllFruits, addUserIfNotExists };
+const getAllFruitsDescending = async () => {
+  try {
+    const res = await pool.query('SELECT * FROM products ORDER BY price DESC');
+    console.log("res.rows", res.rows);
+    return res.rows;
+  } catch (err) {
+    console.error('Error fetching fruits:', err);
+    throw err;
+  }
+};
+
+
+module.exports = { getAllFruits, addUserIfNotExists, getAllFruitsAscending, getAllFruitsDescending };

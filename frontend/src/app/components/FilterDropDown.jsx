@@ -1,17 +1,25 @@
 'use client'
 import styles from '../styles/FilterDropDown.module.css'
+import { useState } from 'react';
 import { useGlobalState } from "../Context/GlobalStateContext";
+import { fetchAllFruitsAscending, fetchAllFruitsDescending } from '../helpers/functions';
 
 export default function FilterDropDown() {
 
-  const {selectedOption, setSelectedOption} = useGlobalState('');
+  const { setFruits } = useGlobalState('');
 
-  const handleFilterChange = (event) => {
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const handleFilterChange = async (event) => {
     const value = event.target.value;
     setSelectedOption(value);
-    if (onFilterChange) {
-      onFilterChange(value);
+
+    if (value === 'price-inc') {
+      await fetchAllFruitsAscending(setFruits);
+    } else if (value === 'price-dec') {
+      await fetchAllFruitsDescending(setFruits);
     }
+    // Add more conditions for other options if needed
   };
 
   return (
@@ -23,10 +31,8 @@ export default function FilterDropDown() {
         <option value="price-inc">Price: Low to High</option>
         <option value="price-dec">Price: High to Low</option>
         <option value="fruitBoxes">Fruit Boxes</option>
-        
+        {/* Add more options as needed */}
       </select>
     </div>
   );
-
-}
-                                                                                                                                                     
+}                                                                                                                                            

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllFruits } = require('../db/queries/helpers')
+const { getAllFruits, getAllFruitsAscending, getAllFruitsDescending } = require('../db/queries/helpers')
 
 
 router.get('/', async (req, res) => {
@@ -13,5 +13,24 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+router.get('/price/asc', async (req, res) => {
+  try {
+    const fruits = await getAllFruitsAscending();
+    res.json(fruits);
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
+router.get('/price/desc', async (req, res) => {
+  try {
+    const fruits = await getAllFruitsDescending();
+    res.json(fruits);
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
 
 module.exports = router;
