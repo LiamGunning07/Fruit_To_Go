@@ -14,9 +14,9 @@ export default function FilterDropDown() {
     const value = event.target.value;
     setSelectedOption(value);
 
-    if (value === 'price-inc') {
+    if (value === 'price-asc') {
       await fetchAllFruitsAscending(setFruits);
-    } else if (value === 'price-dec') {
+    } else if (value === 'price-desc') {
       await fetchAllFruitsDescending(setFruits);
     }
     // Add more conditions for other options if needed
@@ -28,8 +28,8 @@ export default function FilterDropDown() {
         <option value="" disabled={!!selectedOption}>
           Select a filter
         </option>
-        <option value="price-inc">Price: Low to High</option>
-        <option value="price-dec">Price: High to Low</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
         <option value="fruitBoxes">Fruit Boxes</option>
         {/* Add more options as needed */}
       </select>
