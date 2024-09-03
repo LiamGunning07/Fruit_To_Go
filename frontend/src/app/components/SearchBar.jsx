@@ -2,11 +2,10 @@ import { useGlobalState } from "../Context/GlobalStateContext";
 import styles from "../styles/SearchBar.module.css";
 
 export default function SearchBar() {
-const {query, setQuery, results, setResults} = useGlobalState()
+const {query, setQuery, results, setResults, setFruits} = useGlobalState()
 
 const handleInputChange = (event) => {
     setQuery(event.target.value);
-    console.log("query", query)
   };
 
   const handleSearchClick = async () => {
@@ -20,6 +19,7 @@ const handleInputChange = (event) => {
        
         const data = await response.json();
         setResults(data);
+        setFruits(data)
     } catch (error) {
         console.error("Error fetching search results:", error);
         setResults();  // Clear results on error

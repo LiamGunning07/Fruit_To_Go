@@ -1,4 +1,6 @@
 'use client'
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import Header from "../components/Header";
 import styles from "../styles/Cart.module.css";
 import '../styles/globals.css';
@@ -8,8 +10,16 @@ import { useGlobalState } from '../Context/GlobalStateContext'
 import CartList from "../components/CartList";
 
 export default function Cart() {
-  const { cart } = useGlobalState();
-  
+  const { cart, results } = useGlobalState();
+  const router = useRouter();
+
+
+  useEffect(() => {
+    if (results.length > 0) {
+      router.push('/fruit');
+    }
+  }, [results]);
+
   return (
     <div>
       <Header />

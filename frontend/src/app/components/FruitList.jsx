@@ -1,16 +1,23 @@
 "use client"
 import { fetchAllFruits } from '../helpers/functions';
+import { useGlobalState } from '../Context/GlobalStateContext';
 import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
 import styles from '../styles/FruitCard.module.css'
 import '../styles/globals.css'
 
 
-export default function FruitList({fruits, setFruits}) {
+export default function FruitList() {
+const { fruits, setFruits, results} = useGlobalState()
+
 // Inside the component
 useEffect(() => {
-  fetchAllFruits(setFruits);
-}, []);
+  if (results.length > 0) {
+    setFruits(results);
+  } else {
+    fetchAllFruits(setFruits);
+  }
+}, [results, setFruits]);
 
   return (
     <div>
