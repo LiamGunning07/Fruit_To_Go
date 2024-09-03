@@ -61,3 +61,25 @@
 .addToCart{
   opacity: 0;
 }
+
+.popup {
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  width: 50%;
+  max-width: 800px;
+  max-height: 400px;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.popupcontent {
+  background-color: white;
+  border-radius: 5px;
+  padding: 3px 15px 3px 15px;
+  text-align: center; /* Center the text content */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  font-size: small;
+  color: #333;
+}

@@ -45,3 +45,19 @@ export async function fetchAllFruitsDescending(setFruits) {
     console.error('Error fetching products:', error);
   }
 }
+
+export default function showPopup(message) {
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+  
+  // Set the message
+  popupMessage.textContent = message;
+  
+  // Display the pop-up
+  popup.style.display = 'block';
+
+  // Hide the pop-up after 3 seconds
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 2000);
+}
