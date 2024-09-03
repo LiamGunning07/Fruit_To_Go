@@ -28,13 +28,18 @@ const increaseQuantity = () => {
 };
 
 const decreaseQuantity = () => {
-  const updatedCart = cart.map(item => {
+  const updatedCart = cart.reduce((acc, item) => {
     if (item.product_id === product_id) {
-      // Increase the quantity of the matching item
-      return { ...item, quantity: item.quantity - 1 };
+      if (item.quantity > 1) {
+        // Decrease the quantity if it's greater than 1
+        acc.push({ ...item, quantity: item.quantity - 1 });
+      }
+      // If quantity is 1, do not add the item to the new array (removes it)
+    } else {
+      acc.push(item);
     }
-    return item;
-  });
+    return acc;
+  }, []);
 
   setCart(updatedCart);
 };
