@@ -13,12 +13,14 @@ export default function Cart() {
   const { cart, results } = useGlobalState();
   const router = useRouter();
 
-
   useEffect(() => {
     if (results.length > 0) {
       router.push('/fruit');
     }
   }, [results]);
+
+
+
 
   return (
     <div>
