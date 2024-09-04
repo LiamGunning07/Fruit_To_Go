@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/load-cart', (req, res) => {
+router.post('/save-cart', (req, res) => {
   const sessionId = req.cookies.sessionId;
 
   if (!sessionId) {
@@ -26,3 +26,5 @@ router.post('/sync-cart', (req, res) => {
     .then(() => res.json({ message: 'Cart synced successfully!' }))
     .catch(err => res.status(500).json({ error: 'Failed to sync cart' }));
 });
+
+module.exports = router;
