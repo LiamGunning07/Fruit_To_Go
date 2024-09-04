@@ -65,5 +65,23 @@ const getAllFruitsDescending = async () => {
   }
 };
 
+const getCartFromDB = async (sessionId) => {
+  try {
+    // Use parameterized query to avoid SQL injection
+    const res = await pool.query('SELECT * FROM cart WHERE sessionId = $1', [sessionId]);
+    
+    // Check if the cart exists
+    if (res.rows.length === 0) {
+      return null; // No cart found for this sessionId
+    }
 
-module.exports = { getAllFruits, addUserIfNotExists, getAllFruitsAscending, getAllFruitsDescending };
+    return res.rows[0]; // Return the cart data
+  } catch (err) {
+    console.error('Error fetching cart from database:', err);
+    throw err; // Propagate error to be handled by the calling function
+  }
+};
+
+
+
+module.exports = { getAllFruits, addUserIfNotExists, getAllFruitsAscending, getAllFruitsDescending, getCartFromDB };
