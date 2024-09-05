@@ -79,7 +79,7 @@ export function checkOrCreateSessionId() {
 export const saveCartToBackend = (cart) => {
   const sessionId = checkOrCreateSessionId(); // Ensure sessionId is created
 
-  fetch('http://localhost:3001/api/session/save-cart', {
+  fetch('http://localhost:3001/api/session/sync-cart', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
