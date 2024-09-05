@@ -3,15 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/CartCard.module.css'
 import { useGlobalState } from '../Context/GlobalStateContext';
+import { useEffect } from 'react';
 
 export default function CartCard ({quantity, title, price, product_id}) {
 const {cart, setCart} = useGlobalState()
 
 const deleteItem = () => {
-  console.log('Current Cart:', cart);
-  console.log('Product ID to delete:', product_id);
   const updatedCart = cart.filter(item => item.product_id !== product_id);
-  console.log('Updated Cart:', updatedCart);
   setCart(updatedCart);
 };
 
@@ -44,6 +42,10 @@ const decreaseQuantity = () => {
   setCart(updatedCart);
 };
 
+useEffect(() => {
+  console.log("Cart Contents", cart),
+  []
+})
 
 
 return (

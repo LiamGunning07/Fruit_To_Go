@@ -79,19 +79,20 @@ export function checkOrCreateSessionId() {
 export const saveCartToBackend = (cart) => {
   const sessionId = checkOrCreateSessionId(); // Ensure sessionId is created
 
+  console.log('Saving cart to backend:', cart); // Add this to see the cart contents
+
   fetch('http://localhost:3001/api/session/sync-cart', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ sessionId, cart }), // Send sessionId and cart to backend
-    credentials: 'include', // Include cookies in the request
+    body: JSON.stringify({ cart }),
+    credentials: 'include',
   })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.message); // Log success message from backend
+    .then(response => response.json())
+    .then(data => {
+      console.log('Response from backend:', data); // Log backend response
     })
-    .catch((err) => {
-      console.error('Error saving cart to backend:', err);
-    });
+    .catch(err => console.error('Error syncing cart:', err));
 };
+

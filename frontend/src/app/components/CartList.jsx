@@ -18,7 +18,7 @@ export default function CartList({ cart }) {
       {cart.map((item, index) => (
         <CartCard
           key={index}
-          product_id={item.product_id}
+          product_id={item.id}
           quantity={item.quantity}
           title={item.title}
           price={item.price}

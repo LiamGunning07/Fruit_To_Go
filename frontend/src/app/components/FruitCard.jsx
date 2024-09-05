@@ -9,24 +9,26 @@ export default function FruitCard({ title, price, img, description, product_id})
 
   
 
-const addToCart = (product_id) => {
-  const sessionId = checkOrCreateSessionId();
-  console.log("Session ID" , sessionId);
-  const existingItem = cart.find(item => item.product_id === product_id);
-
-  if (existingItem) {
-    setCart(
-      cart.map(item =>
-        item.product_id === product_id
+  const addToCart = (product) => {
+    const existingItem = cart.find(item => item.product_id === product_id);
+  
+    let updatedCart;
+    if (existingItem) {
+      updatedCart = cart.map(item =>
+        item.product_id === product.product_id
           ? { ...item, quantity: item.quantity + 1 }
           : item
-      )
-    );
-  } else {
-    setCart([...cart, { product_id, quantity: 1, title, price }]);
-  }
-  saveCartToBackend(cart);
-};
+      );
+    } else {
+      updatedCart = [...cart, { product_id, title, price, quantity: 1 }];
+    }
+  
+    // Update cart state and then sync to backend after the state has been updated
+    setCart(updatedCart);
+    saveCartToBackend(updatedCart); // Call after updating the cart
+  };
+  
+  
 
 
   return (
