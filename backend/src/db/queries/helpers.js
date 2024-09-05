@@ -67,21 +67,37 @@ const getAllFruitsDescending = async () => {
 
 const getCartFromDB = async (sessionId) => {
   try {
-    // Use parameterized query to avoid SQL injection
-    const res = await pool.query('SELECT * FROM cart WHERE sessionId = $1', [sessionId]);
-    
-    // Check if the cart exists
-    if (res.rows.length === 0) {
-      return null; // No cart found for this sessionId
-    }
-
-    return res.rows[0]; // Return the cart data
+    // Use session_id as it is the correct column name
+    const query = `SELECT product_id, FROM cart WHERE session_id = $1`;
+    const result = await pool.query(query, [sessionId]);
+    return result.rows; // Returns the cart items
   } catch (err) {
     console.error('Error fetching cart from database:', err);
-    throw err; // Propagate error to be handled by the calling function
+    throw err;
+  }
+};
+
+const saveCartToDB = async (sessionId, cart) => {
+  try {
+    console.log('Saving to DB, sessionId:', sessionId, 'cart:', cart); // Log data being saved
+
+    // Loop through the cart items and save them to the database
+    for (const item of cart) {
+      await pool.query(
+        `
+        INSERT INTO cart (session_id, product_id, quantity)
+        VALUES ($1, $2, $3)
+        `,
+        [sessionId, item.product_id, item.quantity]
+      );
+    }
+    console.log('Cart saved successfully');
+  } catch (err) {
+    console.error('Error saving cart to database:', err);
+    throw err;
   }
 };
 
 
 
-module.exports = { getAllFruits, addUserIfNotExists, getAllFruitsAscending, getAllFruitsDescending, getCartFromDB };
+module.exports = { getAllFruits, addUserIfNotExists, getAllFruitsAscending, getAllFruitsDescending, getCartFromDB, saveCartToDB };
