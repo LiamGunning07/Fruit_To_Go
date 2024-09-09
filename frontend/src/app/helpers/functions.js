@@ -67,14 +67,15 @@ export function generateSessionId(){
 };
 
 export function checkOrCreateSessionId() {
+  // Retrieve sessionId from cookie, or create a new one if not found
   const sessionId = document.cookie.split('; ').find(row => row.startsWith('sessionId='))?.split('=')[1];
   if (!sessionId) {
     const newSessionId = generateSessionId();
-    document.cookie = `sessionId=${newSessionId}; path=/; max-age=${60 * 60 * 24 * 7}`; // Set for 7 days
+    document.cookie = `sessionId=${newSessionId}; path=/; max-age=${60 * 60 * 24 * 1}`; // 1 day expiry
     return newSessionId;
   }
   return sessionId;
-};
+}
 
 export const saveCartToBackend = (cart) => {
   const sessionId = checkOrCreateSessionId(); // Ensure sessionId is created
@@ -86,7 +87,7 @@ export const saveCartToBackend = (cart) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ cart }),
+    body: JSON.stringify({ sessionId, cart }), // Send sessionId along with cart
     credentials: 'include',
   })
     .then(response => response.json())
@@ -95,4 +96,18 @@ export const saveCartToBackend = (cart) => {
     })
     .catch(err => console.error('Error syncing cart:', err));
 };
+
+export const loadCart = async (setCart) => {
+  try {
+    const response = await fetch('http://localhost:3001/api/session/load-cart', {
+      method: 'GET',
+      credentials: 'include',  // Include credentials to send cookies
+    });
+    const data = await response.json();
+    setCart(data.cart); // Assuming the cart is stored in the global state
+  } catch (error) {
+    console.error('Error loading cart:', error);
+  }
+};
+
 

@@ -1,7 +1,7 @@
 "use client"
 import '../app/ui/fontawesome'
 import '../app/styles/globals.css'
-import { useState, useEffect } from 'react';
+import {useEffect } from 'react';
 import Header from ".//components/Header";
 import FruitCarousel from './components/FruitCarousel';
 import FruitList from './components/FruitList';

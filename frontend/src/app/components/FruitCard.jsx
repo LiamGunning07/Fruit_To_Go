@@ -1,7 +1,7 @@
 'use client'
 import styles from '../styles/FruitCard.module.css'
 import { useGlobalState } from '../Context/GlobalStateContext';
-import {showPopup, checkOrCreateSessionId, saveCartToBackend} from '../helpers/functions'
+import {showPopup, saveCartToBackend} from '../helpers/functions'
 
 
 export default function FruitCard({ title, price, img, description, product_id}) {

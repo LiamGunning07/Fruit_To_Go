@@ -1,5 +1,6 @@
 "use client"
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { loadCart } from '../helpers/functions';
 
 // Create the context
 const GlobalStateContext = createContext();
@@ -14,6 +15,9 @@ export function GlobalStateProvider({ children }) {
   const [query, setQuery] = useState('');
   const [selectedOption, setSelectedOption] = useState('')
   
+  useEffect(() => {
+    loadCart(setCart); // Load the cart on app initialization
+  }, []);
 
   return (
     <GlobalStateContext.Provider
