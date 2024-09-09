@@ -68,7 +68,7 @@ const getAllFruitsDescending = async () => {
 const getCartFromDB = async (sessionId) => {
   try {
     // Use session_id as it is the correct column name
-    const query = `SELECT product_id, FROM cart WHERE session_id = $1`;
+    const query = `SELECT product_id, quantity FROM cart WHERE session_id = $1`;
     const result = await pool.query(query, [sessionId]);
     return result.rows; // Returns the cart items
   } catch (err) {
