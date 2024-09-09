@@ -4,7 +4,7 @@ import { useGlobalState } from '../Context/GlobalStateContext';
 import {showPopup, saveCartToBackend} from '../helpers/functions'
 
 
-export default function FruitCard({ title, price, img, description, product_id}) {
+export default function FruitCard({ name, price, img, description, product_id}) {
   const { cart, setCart } = useGlobalState();
 
   
@@ -20,7 +20,7 @@ export default function FruitCard({ title, price, img, description, product_id})
           : item
       );
     } else {
-      updatedCart = [...cart, { product_id, title, price, quantity: 1 }];
+      updatedCart = [...cart, { product_id, name, price, quantity: 1 }];
     }
   
     // Update cart state and then sync to backend after the state has been updated
@@ -33,14 +33,14 @@ export default function FruitCard({ title, price, img, description, product_id})
 
   return (
         <div className={styles.container}>
-          <h1 className={styles.title}>{title}</h1>
+          <h1 className={styles.title}>{name}</h1>
           <h2 className={styles.price}>${price}</h2>
-          <img src={img} className={styles.img} alt={title} />
+          <img src={img} className={styles.img} alt={name} />
           <p className={styles.description}>{description}</p>
           <div className={styles.overlay}>
             <button className={styles.addToCart} onClick={() => {
               addToCart(product_id); 
-              showPopup(`${title} Added to Cart!`);
+              showPopup(`${name} Added to Cart!`);
             }}
             >
               Add to Cart

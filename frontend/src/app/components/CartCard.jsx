@@ -5,7 +5,7 @@ import styles from '../styles/CartCard.module.css'
 import { useGlobalState } from '../Context/GlobalStateContext';
 import { useEffect } from 'react';
 
-export default function CartCard ({quantity, title, price, product_id}) {
+export default function CartCard ({quantity, name, price, product_id}) {
 const {cart, setCart} = useGlobalState()
 
 const deleteItem = () => {
@@ -37,19 +37,13 @@ const decreaseQuantity = () => {
   setCart(updatedCart);
 };
 
-useEffect(() => {
-  console.log("Cart Contents", cart),
-  []
-})
-
-
 return (
     <div className={styles.outer}>
       <div className={styles.container}>
         <div className={styles.title_container}>
           <FontAwesomeIcon icon={faTrash} className={styles.faTrash} onClick={deleteItem} />
           <h1 className={styles.title}>
-            {title} <span className={styles.info}>{price} x {quantity}</span>
+            {name} <span className={styles.info}>{price} x {quantity}</span>
           </h1>
         </div>
         <div className={styles.quantity_container}>

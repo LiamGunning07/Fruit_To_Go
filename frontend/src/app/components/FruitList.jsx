@@ -26,7 +26,7 @@ useEffect(() => {
         <FruitCard 
           key={index}
           product_id={fruit.id}
-          title={fruit.name}
+          name={fruit.name}
           price={fruit.price}
           img={fruit.img}
           quantity={fruit.quantity}

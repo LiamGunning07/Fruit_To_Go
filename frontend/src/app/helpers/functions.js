@@ -7,7 +7,7 @@ export async function fetchAllFruits(setFruits) {
     }
 
     const data = await response.json();
-    console.log("Raw Fruit Fetch Data", data);
+    // console.log("Raw Fruit Fetch Data", data);
     setFruits(data);
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -23,7 +23,7 @@ export async function fetchAllFruitsAscending(setFruits) {
     }
 
     const data = await response.json();
-    console.log("ASC fruit data", data);
+    // console.log("ASC fruit data", data);
     setFruits(data);
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -39,7 +39,7 @@ export async function fetchAllFruitsDescending(setFruits) {
     }
 
     const data = await response.json();
-    console.log("DESC fruit Data", data);
+    // console.log("DESC fruit Data", data);
     setFruits(data);
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -92,7 +92,7 @@ export const saveCartToBackend = (cart) => {
   })
     .then(response => response.json())
     .then(data => {
-      console.log('Response from backend:', data); // Log backend response
+      // console.log('Response from backend:', data); // Log backend response
     })
     .catch(err => console.error('Error syncing cart:', err));
 };

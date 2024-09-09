@@ -28,7 +28,7 @@ export default function CartList({ cart } ) {
             key={item.product_id} // Use id as key, fallback to index if id is missing
             product_id={item.product_id}    // Pass id to CartCard as product_id
             quantity={item.quantity}
-            title={item.name}
+            name={item.name}
             price={item.price}
           />
         );
