@@ -1,6 +1,8 @@
 'use client'
 import CartCard from "./CartCard";
 import styles from '../styles/CartList.module.css'
+import { useEffect } from "react";
+import { saveCartToBackend } from "../helpers/functions";
 
 
 export default function CartList({ cart } ) {
@@ -12,6 +14,11 @@ export default function CartList({ cart } ) {
   if (!cart || !Array.isArray(cart)) {
     return <p>Your cart is empty.</p>; // or handle it however you prefer
   }
+
+  useEffect(() => {
+    saveCartToBackend(cart),
+    [cart]
+  })
 
   return (
     <div className={styles.container}>

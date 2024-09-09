@@ -30,7 +30,7 @@ export default function Cart() {
         <h1>Your Cart {cart.length === 0 && "is Empty"}</h1>
       </div>
       <div className={styles.cartlist_container}>
-      {cart.length > 0 && <CartList cart={cart} />}
+      {cart.length > 0 && <CartList cart={cart}/>}
       </div>
     </div>
   );
