@@ -67,15 +67,20 @@ const getAllFruitsDescending = async () => {
 
 const getCartFromDB = async (sessionId) => {
   try {
-    // Use session_id as it is the correct column name
-    const query = `SELECT product_id, quantity FROM cart WHERE session_id = $1`;
+    const query = `
+      SELECT cart.product_id, cart.quantity, products.name, products.price
+      FROM cart
+      JOIN products ON cart.product_id = products.id
+      WHERE cart.session_id = $1
+    `;
     const result = await pool.query(query, [sessionId]);
-    return result.rows; // Returns the cart items
+    return result.rows; // Returns the cart items with product details
   } catch (err) {
     console.error('Error fetching cart from database:', err);
     throw err;
   }
 };
+
 
 const saveCartToDB = async (sessionId, cart) => {
   try {
@@ -87,6 +92,8 @@ const saveCartToDB = async (sessionId, cart) => {
         `
         INSERT INTO cart (session_id, product_id, quantity)
         VALUES ($1, $2, $3)
+        ON CONFLICT (session_id, product_id)
+        DO UPDATE SET quantity = EXCLUDED.quantity
         `,
         [sessionId, item.product_id, item.quantity]
       );
@@ -97,6 +104,7 @@ const saveCartToDB = async (sessionId, cart) => {
     throw err;
   }
 };
+
 
 
 
