@@ -22,15 +22,13 @@ export default function CartList({ cart } ) {
 
   return (
     <div className={styles.container}>
-      {cart.map((item, index) => {
-        // Log the item to check if id exists
-        console.log("Item in CartList:", item);
+      {cart.map((item) => {
         return (
           <CartCard
             key={item.product_id} // Use id as key, fallback to index if id is missing
             product_id={item.product_id}    // Pass id to CartCard as product_id
             quantity={item.quantity}
-            title={item.title}
+            title={item.name}
             price={item.price}
           />
         );
