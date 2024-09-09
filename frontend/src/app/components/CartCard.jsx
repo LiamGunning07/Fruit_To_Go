@@ -9,19 +9,17 @@ export default function CartCard ({quantity, title, price, product_id}) {
 const {cart, setCart} = useGlobalState()
 
 const deleteItem = () => {
-  const updatedCart = cart.filter(item => item.product_id !== product_id);
+  const updatedCart = cart.filter(item => item.product_id !== product_id);  // Use product_id
   setCart(updatedCart);
 };
 
 const increaseQuantity = () => {
   const updatedCart = cart.map(item => {
     if (item.product_id === product_id) {
-      // Increase the quantity of the matching item
-      return { ...item, quantity: item.quantity + 1 };
+      return { ...item, quantity: item.quantity + 1 };  // Update quantity
     }
     return item;
   });
-
   setCart(updatedCart);
 };
 
@@ -29,16 +27,13 @@ const decreaseQuantity = () => {
   const updatedCart = cart.reduce((acc, item) => {
     if (item.product_id === product_id) {
       if (item.quantity > 1) {
-        // Decrease the quantity if it's greater than 1
         acc.push({ ...item, quantity: item.quantity - 1 });
       }
-      // If quantity is 1, do not add the item to the new array (removes it)
     } else {
       acc.push(item);
     }
     return acc;
   }, []);
-
   setCart(updatedCart);
 };
 
