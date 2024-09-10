@@ -3,25 +3,52 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/CartCard.module.css'
 import { useGlobalState } from '../Context/GlobalStateContext';
-import { useEffect } from 'react';
 
 export default function CartCard ({quantity, name, price, product_id}) {
 const {cart, setCart} = useGlobalState()
 
 const deleteItem = () => {
-  const updatedCart = cart.filter(item => item.product_id !== product_id);  // Use product_id
+  const updatedCart = cart.filter(item => item.product_id !== product_id);
   setCart(updatedCart);
+
+  // Post the updated cart to the /sync-cart route
+  fetch('http://localhost:3001/api/session/sync-cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ cart: updatedCart }),
+    credentials: 'include',
+  })
+  .then(response => response.json())
+  .then(data => console.log(data.message))
+  .catch(error => console.error('Error syncing cart:', error));
 };
+
 
 const increaseQuantity = () => {
   const updatedCart = cart.map(item => {
     if (item.product_id === product_id) {
-      return { ...item, quantity: item.quantity + 1 };  // Update quantity
+      return { ...item, quantity: item.quantity + 1 };
     }
     return item;
   });
   setCart(updatedCart);
+
+  // Post the updated cart to the /sync-cart route
+  fetch('http://localhost:3001/api/session/sync-cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ cart: updatedCart }),
+    credentials: 'include',
+  })
+  .then(response => response.json())
+  .then(data => console.log(data.message))
+  .catch(error => console.error('Error syncing cart:', error));
 };
+
 
 const decreaseQuantity = () => {
   const updatedCart = cart.reduce((acc, item) => {
@@ -35,7 +62,21 @@ const decreaseQuantity = () => {
     return acc;
   }, []);
   setCart(updatedCart);
+
+  // Post the updated cart to the /sync-cart route
+  fetch('http://localhost:3001/api/session/sync-cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ cart: updatedCart }),
+    credentials: 'include',
+  })
+  .then(response => response.json())
+  .then(data => console.log(data.message))
+  .catch(error => console.error('Error syncing cart:', error));
 };
+
 
 return (
     <div className={styles.outer}>

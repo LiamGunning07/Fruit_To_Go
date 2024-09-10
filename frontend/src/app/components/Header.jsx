@@ -36,6 +36,8 @@ export default function Header () {
     setResults([])
     router.push('/beverages')
   }
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
 
   return (
     <div>
@@ -60,8 +62,11 @@ export default function Header () {
             <u> Beverages </u></li>
             <li onClick={handleCartClick}>
               <FontAwesomeIcon icon={faCartShopping}/> 
-            <u> Cart </u>
-            <span className={styles.count}> {cart.length} </span></li>
+              <u> Cart </u>
+              {
+                totalItems > 0 && <span className={styles.count}> {totalItems} </span>
+              }
+            </li>
           </ul>
       </div>
     </div>
