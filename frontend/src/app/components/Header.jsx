@@ -10,7 +10,7 @@ import FilterDropDown from './FilterDropDown';
 
 export default function Header () {
   const router = useRouter();
-  const {query, setQuery, results, setResults, setFruits} = useGlobalState()
+  const {query, setQuery, results, setResults, setFruits, cart} = useGlobalState()
 
   const handleFruitClick = () => {
     setResults([])
@@ -60,7 +60,8 @@ export default function Header () {
             <u> Beverages </u></li>
             <li onClick={handleCartClick}>
               <FontAwesomeIcon icon={faCartShopping}/> 
-            <u> Cart </u></li>
+            <u> Cart </u>
+            <span className={styles.count}> {cart.length} </span></li>
           </ul>
       </div>
     </div>
