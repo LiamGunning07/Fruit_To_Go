@@ -86,7 +86,15 @@ const saveCartToDB = async (sessionId, cart) => {
   try {
     console.log('Saving to DB, sessionId:', sessionId, 'cart:', cart); // Log data being saved
 
-    // Loop through the cart items and save them to the database
+    // Retrieve the existing cart from the database for the current session
+    const existingCart = await pool.query(
+      'SELECT product_id FROM cart WHERE session_id = $1',
+      [sessionId]
+    );
+
+    const existingProductIds = existingCart.rows.map(row => row.product_id);
+
+    // Loop through the cart items and either insert or update them in the database
     for (const item of cart) {
       await pool.query(
         `
@@ -98,12 +106,28 @@ const saveCartToDB = async (sessionId, cart) => {
         [sessionId, item.product_id, item.quantity]
       );
     }
+
+    // Find the products that are in the database but not in the updated cart, and delete them
+    const updatedProductIds = cart.map(item => item.product_id);
+    const productsToDelete = existingProductIds.filter(
+      productId => !updatedProductIds.includes(productId)
+    );
+
+    if (productsToDelete.length > 0) {
+      await pool.query(
+        'DELETE FROM cart WHERE session_id = $1 AND product_id = ANY($2::int[])',
+        [sessionId, productsToDelete]
+      );
+      console.log('Deleted items:', productsToDelete);
+    }
+
     console.log('Cart saved successfully');
   } catch (err) {
     console.error('Error saving cart to database:', err);
     throw err;
   }
 };
+
 
 
 

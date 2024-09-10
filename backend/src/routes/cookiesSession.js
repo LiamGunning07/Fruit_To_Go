@@ -21,6 +21,9 @@ router.get('/load-cart', (req, res) => {
 
 // Sync cart with the database
 router.post('/sync-cart', (req, res) => {
+  console.log('Cookies:', req.cookies);  // Log cookies to check if sessionId is present
+  console.log('Cart:', req.body.cart);   // Log the cart to see what is being sent
+
   const { cart } = req.body;
   const sessionId = req.cookies.sessionId; // Retrieve sessionId from the cookie
 
@@ -40,5 +43,6 @@ router.post('/sync-cart', (req, res) => {
       res.status(500).json({ error: 'Failed to sync cart' });
     });
 });
+
 
 module.exports = router;
