@@ -8,7 +8,8 @@ import '../styles/globals.css'
 
 
 export default function Fruit () {
-const {fruits, setFruits} = useGlobalState([])
+const {fruits, setFruits, selectedCard, setSelectedCard
+} = useGlobalState([])
 
   return (
     <>

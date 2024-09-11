@@ -31,6 +31,7 @@ useEffect(() => {
           img={fruit.img}
           quantity={fruit.quantity}
           description={fruit.description}
+          onClick={() => selectCard(product_id)}
           />
         ))}
       </div>

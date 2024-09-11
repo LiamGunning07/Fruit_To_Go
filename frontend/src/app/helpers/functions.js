@@ -110,4 +110,8 @@ export const loadCart = async (setCart) => {
   }
 };
 
-
+export const selectCard = async (product_id, fruits, setSelectedCard) => {
+  const product = fruits.find((fruit) => fruit.product_id === product_id);
+  setSelectedCard(product); // Update the state with the filtered product
+  console.log("Select Card Fired")
+};
