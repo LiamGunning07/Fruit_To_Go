@@ -2,7 +2,7 @@
 import FilterDropDown from '../components/FilterDropDown'
 import FruitList from '../components/FruitList'
 import Header from '../components/Header'
-import { useGlobalState } from '../Context/GlobalStateContext'
+import { useGlobalState } from '../context/GlobalStateContext'
 import styles from '../styles/Fruit.module.css'
 import '../styles/globals.css'
 

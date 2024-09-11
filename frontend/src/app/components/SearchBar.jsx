@@ -1,4 +1,4 @@
-import { useGlobalState } from "../Context/GlobalStateContext";
+import { useGlobalState } from "../context/GlobalStateContext";
 import styles from "../styles/SearchBar.module.css";
 
 export default function SearchBar() {

@@ -1,7 +1,7 @@
 'use client'
 import styles from '../styles/FilterDropDown.module.css'
 import { useState } from 'react';
-import { useGlobalState } from "../Context/GlobalStateContext";
+import { useGlobalState } from "../context/GlobalStateContext";
 import { fetchAllFruitsAscending, fetchAllFruitsDescending } from '../helpers/functions';
 
 export default function FilterDropDown() {

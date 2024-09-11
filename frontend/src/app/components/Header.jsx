@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import styles from '../styles/Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
-import { useGlobalState } from '../Context/GlobalStateContext';
+import { useGlobalState } from '../context/GlobalStateContext';
 import { fetchAllFruits } from '../helpers/functions';
 import FilterDropDown from './FilterDropDown';
 

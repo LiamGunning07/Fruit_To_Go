@@ -1,6 +1,6 @@
 'use client'
 import styles from '../styles/FruitCard.module.css'
-import { useGlobalState } from '../Context/GlobalStateContext';
+import { useGlobalState } from '../context/GlobalStateContext';
 import {showPopup, saveCartToBackend} from '../helpers/functions'
 
 

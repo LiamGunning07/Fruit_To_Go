@@ -5,7 +5,7 @@ import {useEffect } from 'react';
 import Header from ".//components/Header";
 import FruitCarousel from './components/FruitCarousel';
 import FruitList from './components/FruitList';
-import { useGlobalState } from './Context/GlobalStateContext';
+import { useGlobalState } from './context/GlobalStateContext';
 
 
 export default function Home() {

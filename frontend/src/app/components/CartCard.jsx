@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/CartCard.module.css'
-import { useGlobalState } from '../Context/GlobalStateContext';
+import { useGlobalState } from '../context/GlobalStateContext';
 
 export default function CartCard ({quantity, name, price, product_id}) {
 const {cart, setCart} = useGlobalState()

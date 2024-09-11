@@ -1,6 +1,6 @@
 "use client"
 import { fetchAllFruits } from '../helpers/functions';
-import { useGlobalState } from '../Context/GlobalStateContext';
+import { useGlobalState } from '../context/GlobalStateContext';
 import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
 import styles from '../styles/FruitCard.module.css'
