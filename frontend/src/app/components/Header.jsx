@@ -31,11 +31,6 @@ export default function Header () {
     router.push('/cart')
   }
 
-  const handleBeverageClick = () => {
-    setQuery('');
-    setResults([])
-    router.push('/beverages')
-  }
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
 
@@ -57,9 +52,6 @@ export default function Header () {
             <li onClick={handleFruitClick}>
               <FontAwesomeIcon icon={faAppleWhole} />
             <u> Fruit </u></li>
-            <li onClick={handleBeverageClick}>
-              <FontAwesomeIcon icon={faBottleDroplet} />
-            <u> Beverages </u></li>
             <li onClick={handleCartClick}>
               <FontAwesomeIcon icon={faCartShopping}/> 
               <u> Cart </u>
