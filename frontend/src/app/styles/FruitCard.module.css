@@ -1,8 +1,12 @@
 .title {
   color: black;
+  
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 400px;
   border: 3px solid transparent;
   border-color: #AEB02A;
@@ -82,4 +86,9 @@
   font-weight: bold;
   font-size: small;
   color: #333;
+}
+
+.unit {
+  font-size: 12px;
+  color: grey;
 }

@@ -30,6 +30,7 @@ export default function CartList({ cart } ) {
             quantity={item.quantity}
             name={item.name}
             price={item.price}
+            quantityPerUnit={item.quantityPerUnit}
           />
         );
       })}

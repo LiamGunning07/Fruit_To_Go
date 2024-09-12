@@ -4,7 +4,7 @@ import {faTrash, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/CartCard.module.css'
 import { useGlobalState } from '../context/GlobalStateContext';
 
-export default function CartCard ({quantity, name, price, product_id}) {
+export default function CartCard ({quantity, name, price, product_id, quantityPerUnit}) {
 const {cart, setCart} = useGlobalState()
 
 const deleteItem = () => {
@@ -83,9 +83,11 @@ return (
       <div className={styles.container}>
         <div className={styles.title_container}>
           <FontAwesomeIcon icon={faTrash} className={styles.faTrash} onClick={deleteItem} />
-          <h1 className={styles.title}>
-            {name} <span className={styles.info}>{price} x {quantity}</span>
-          </h1>
+          <div className={styles.info}>
+            <h1 className={styles.title}>{name}</h1>
+            <span className={styles.bold}>{price}/{quantityPerUnit}</span>
+            <span className={styles.bold}>x {quantity}</span>
+          </div>
         </div>
         <div className={styles.quantity_container}>
           <p>Order Quantity: {quantity}</p>

@@ -73,5 +73,17 @@
 }
 
 .info {
-  font-size: 14px;
+  display: flex;
+  align-items: baseline; /* Aligns items vertically in the center */
 }
+
+.title {
+  margin-right: 5px; /* Adds spacing between the title and the price/unit */
+}
+
+.bold {
+  font-weight: bold;
+  margin-left: 5px; /* Adds spacing between the price/unit and the quantity */
+}
+
+
