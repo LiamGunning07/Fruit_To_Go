@@ -71,7 +71,7 @@ export function checkOrCreateSessionId() {
   const sessionId = document.cookie.split('; ').find(row => row.startsWith('sessionId='))?.split('=')[1];
   if (!sessionId) {
     const newSessionId = generateSessionId();
-    document.cookie = `sessionId=${newSessionId}; path=/; SameSite=None; max-age=${60 * 60 * 24 * 1}`; // 1 day expiry
+    document.cookie = `sessionId=${newSessionId}; path=/; max-age=${60 * 60 * 24 * 1}`; // 1 day expiry
     return newSessionId;
   }
   return sessionId;

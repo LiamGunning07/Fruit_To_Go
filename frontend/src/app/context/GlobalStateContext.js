@@ -1,6 +1,6 @@
 "use client"
 import { createContext, useContext, useState, useEffect } from 'react';
-import { loadCart } from '../helpers/functions';
+import { checkOrCreateSessionId, loadCart } from '../helpers/functions';
 
 // Create the context
 const GlobalStateContext = createContext();
@@ -18,6 +18,7 @@ export function GlobalStateProvider({ children }) {
   
   useEffect(() => {
     loadCart(setCart); // Load the cart on app initialization
+    checkOrCreateSessionId();
   }, []);
 
   return (
