@@ -22,7 +22,7 @@ const {fruits, setFruits, selectedCard, setSelectedCard
       <FilterDropDown/>
     </div>
     {/* If selectedCard has something, render both selectedCard and FruitList */}
-  {selectedCard && selectedCard.length >= 0 ? (
+  {selectedCard && selectedCard.length > 0  ? (
     <>
       <SelectedCard selectedCard={selectedCard} />
       {console.log("Inside selectedCard", selectedCard)}

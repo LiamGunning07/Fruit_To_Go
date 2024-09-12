@@ -9,9 +9,10 @@ export default function FruitCard({ name, price, img, description, product_id, q
 
   
 
-  const addToCart = (product) => {
+  const addToCart = (e, product) => {
+    e.stopPropagation();
     const existingItem = cart.find(item => item.product_id === product_id);
-  
+    
     let updatedCart;
     if (existingItem) {
       updatedCart = cart.map(item =>
@@ -40,8 +41,8 @@ export default function FruitCard({ name, price, img, description, product_id, q
           <img src={img} className={styles.img} alt={name} />
           <p className={styles.description}>{description}</p>
           <div className={styles.overlay}>
-            <button className={styles.addToCart} onClick={() => {
-              addToCart(product_id); 
+            <button className={styles.addToCart} onClick={(e) => {
+              addToCart(e,product_id); 
               showPopup(`${name} Added to Cart!`);
             }}
             >
