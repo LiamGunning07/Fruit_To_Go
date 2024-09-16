@@ -5,10 +5,9 @@ import {showPopup, saveCartToBackend, selectCard} from '../helpers/functions'
 import { useEffect } from 'react';
 
 
-export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit}) {
+export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit, onClick}) {
   const { cart, setCart, selectedCard, setSelectedCard, fruits, setFruits } = useGlobalState();
 
-  
 
   const addToCart = (e, product) => {
     e.stopPropagation();
@@ -32,9 +31,8 @@ export default function FruitCard({ name, price, img, description, product_id, q
   
   
 
-
   return (
-        <div className={styles.container} onClick={() => selectCard(product_id, fruits, setSelectedCard, setFruits)}>
+        <div className={styles.container} onClick={onClick}>
           <h1 className={styles.title}>{name}</h1>
           <h2 className={styles.price}>${price}
             <div className={styles.unit}> /{quantityPerUnit}  </div>

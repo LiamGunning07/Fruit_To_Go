@@ -113,21 +113,29 @@ export const loadCart = async (setCart) => {
 export const selectCard = async (product_id, fruits, setSelectedCard, setFruits) => {
   console.log("Product ID:", product_id);
 
-  // Find and set the selected product
-  const selectedProduct = fruits.find((fruit) => fruit.id == product_id);
+  // Find the selected product
+  const selectedProduct = fruits.find(fruit => fruit.id == product_id);
   
   if (selectedProduct) {
-    setSelectedCard(selectedProduct);
-
     // Mark the selected product with `isSelected: true`
     const updatedFruits = fruits.map(fruit => 
-      fruit.id === product_id ? { ...fruit, isSelected: true } : { ...fruit, isSelected: false }
+      fruit.id === product_id
+        ? { ...fruit, isSelected: true }
+        : { ...fruit, isSelected: false }
     );
 
-    setFruits(updatedFruits); // Update fruits with the selected flag
+    // First, update the fruits list
+    setFruits(updatedFruits);
+
+    // Delay updating selectedCard to allow time for fruits state to update
+    setTimeout(() => {
+      setSelectedCard(selectedProduct);  // Update the selected card after a short delay
+    }, 300);  // Adjust the timeout duration as needed (300ms here)
   } else {
     console.log("Product not found with ID:", product_id);
   }
 };
+
+
 
 

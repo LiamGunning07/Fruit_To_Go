@@ -1,5 +1,5 @@
 "use client"
-import { fetchAllFruits } from '../helpers/functions';
+import { fetchAllFruits, selectCard } from '../helpers/functions';
 import { useGlobalState } from '../context/GlobalStateContext';
 import React, { useEffect, useState } from 'react';
 import FruitCard from '../components/FruitCard'
@@ -8,7 +8,7 @@ import '../styles/globals.css'
 
 
 export default function FruitList() {
-const { fruits, setFruits, results} = useGlobalState()
+const { fruits, setFruits, results, setSelectedCard} = useGlobalState()
 
 // Inside the component
 useEffect(() => {
@@ -34,7 +34,7 @@ useEffect(() => {
           quantity={fruit.quantity}
           description={fruit.description}
           quantityPerUnit={fruit.quantity_per_unit}
-          onClick={() => selectCard(product_id)}
+          onClick={() => selectCard(fruit.id, fruits, setSelectedCard, setFruits)} // Pass selectCard correctly
           />
         ))}
       </div>
