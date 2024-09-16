@@ -22,7 +22,9 @@ useEffect(() => {
   return (
     <div>
       <div className={styles.FruitList}>
-      {fruits.map((fruit, index) => (
+      {fruits
+      .filter(fruit => !fruit.isSelected)
+      .map((fruit, index) => (
         <FruitCard 
           key={index}
           product_id={fruit.id}
