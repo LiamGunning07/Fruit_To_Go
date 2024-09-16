@@ -30,9 +30,6 @@ export default function FruitCard({ name, price, img, description, product_id, q
     saveCartToBackend(updatedCart); // Call after updating the cart
   };
   
-  useEffect(() => {
-    console.log(selectedCard, "Selected Card Product ID")
-  },[selectedCard])
   
 
 
