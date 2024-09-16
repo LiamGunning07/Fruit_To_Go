@@ -9,35 +9,28 @@ import '../styles/globals.css'
 
 
 export default function Fruit () {
-const {fruits, setFruits, selectedCard, setSelectedCard
-} = useGlobalState()
+const { fruits, setFruits, selectedCard, setSelectedCard } = useGlobalState()
 
-  return (
-    <>
-    <Header
-    fruits={fruits}
-    setFruits={setFruits}/>
+return (
+  <>
+    <Header fruits={fruits} setFruits={setFruits} />
     <div className={styles.heading}>
-      <h1> All Fruits </h1>
-      <FilterDropDown/>
+      <h1>All Fruits</h1>
+      <FilterDropDown />
     </div>
-    {/* If selectedCard has something, render both selectedCard and FruitList */}
-  {selectedCard && selectedCard.length > 0  ? (
-    <>
-      <SelectedCard selectedCard={selectedCard} />
-      {console.log("Inside selectedCard", selectedCard)}
-      <FruitList 
-        fruits={fruits}
-        setFruits={setFruits} 
-      />
-    </>
-  ) : (
-    /* If nothing is selected, render only the FruitList */
-    <FruitList 
-      fruits={fruits}
-      setFruits={setFruits} 
-    />
-  )}
+    {/* Check if selectedCard is truthy, meaning a fruit is selected */}
+    {selectedCard ? (
+      <>
+        {/* Render SelectedCard if a fruit is selected */}
+        <SelectedCard selectedCard={selectedCard} />
+        {console.log("Selected Card: ", selectedCard)}
+        {/* Render the FruitList under the SelectedCard */}
+        <FruitList fruits={fruits} setFruits={setFruits} />
+      </>
+    ) : (
+      // If no fruit is selected, render only the FruitList
+      <FruitList fruits={fruits} setFruits={setFruits} />
+    )}
   </>
-  );
-  }
+);
+}

@@ -111,7 +111,17 @@ export const loadCart = async (setCart) => {
 };
 
 export const selectCard = async (product_id, fruits, setSelectedCard) => {
-  const product = fruits.find((fruit) => fruit.product_id === product_id);
-  setSelectedCard(product); // Update the state with the filtered product
-  console.log("Select Card Fired")
+  console.log("Product ID:", product_id);
+  console.log("Fruits Array:", fruits);
+
+  // Check if the product_id is a number or string and ensure it's the same type as in `fruits`
+  const product = fruits.find((fruit) => fruit.id == product_id); // Use == for type conversion
+  
+  if (product) {
+    setSelectedCard(product); // Update the state with the filtered product
+    console.log("Selected Product:", product);
+  } else {
+    console.log("Product not found with ID:", product_id);
+  }
 };
+

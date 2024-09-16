@@ -2,6 +2,7 @@
 import styles from '../styles/FruitCard.module.css'
 import { useGlobalState } from '../context/GlobalStateContext';
 import {showPopup, saveCartToBackend, selectCard} from '../helpers/functions'
+import { useEffect } from 'react';
 
 
 export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit}) {
@@ -29,6 +30,9 @@ export default function FruitCard({ name, price, img, description, product_id, q
     saveCartToBackend(updatedCart); // Call after updating the cart
   };
   
+  useEffect(() => {
+    console.log(selectedCard, "Selected Card Product ID")
+  },[selectedCard])
   
 
 
@@ -49,7 +53,6 @@ export default function FruitCard({ name, price, img, description, product_id, q
               Add to Cart
             </button>
           </div>
-          {/* The Popup Element */}
           <div id="popup" className={styles.popup} style={{ display: 'none' }}>
             <div className={styles.popupcontent}>
               <h2 id="popup-message"></h2>

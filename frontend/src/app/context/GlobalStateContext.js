@@ -14,7 +14,7 @@ export function GlobalStateProvider({ children }) {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
   const [selectedOption, setSelectedOption] = useState('')
-  const [selectedCard, setSelectedCard] = useState([])
+  const [selectedCard, setSelectedCard] = useState(null)
   
   useEffect(() => {
     loadCart(setCart); // Load the cart on app initialization
