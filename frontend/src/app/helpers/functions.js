@@ -128,9 +128,9 @@ export const selectCard = async (product_id, fruits, setSelectedCard, setFruits)
     setFruits(updatedFruits);
 
     // Delay updating selectedCard to allow time for fruits state to update
-    setTimeout(() => {
+    
       setSelectedCard(selectedProduct);  // Update the selected card after a short delay
-    }, 300);  // Adjust the timeout duration as needed (300ms here)
+    // Adjust the timeout duration as needed (300ms here)
   } else {
     console.log("Product not found with ID:", product_id);
   }

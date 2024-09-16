@@ -13,24 +13,15 @@ const { fruits, setFruits, selectedCard, setSelectedCard } = useGlobalState()
 
 return (
   <>
-    <Header fruits={fruits} setFruits={setFruits} />
+    <Header/>
     <div className={styles.heading}>
       <h1>All Fruits</h1>
       <FilterDropDown />
     </div>
-    {/* Check if selectedCard is truthy, meaning a fruit is selected */}
     {selectedCard ? (
-      <>
-        {/* Render SelectedCard if a fruit is selected */}
-        <SelectedCard selectedCard={selectedCard} />
-        {console.log("Selected Card: ", selectedCard)}
-        {/* Render the FruitList under the SelectedCard */}
-        <FruitList fruits={fruits} setFruits={setFruits} />
-      </>
-    ) : (
-      // If no fruit is selected, render only the FruitList
-      <FruitList fruits={fruits} setFruits={setFruits} />
-    )}
+        <SelectedCard />  // Render the SelectedCard component
+      ) : null}
+      <FruitList />
   </>
 );
 }

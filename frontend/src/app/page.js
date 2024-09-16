@@ -21,13 +21,8 @@ useEffect(() => {
 
   return (
     <div>
-      <Header
-        fruits={fruits}
-        setFruits={setFruits}
-        setQuery={setQuery}
-        query={query}
-        results={results}
-        setResults={setResults}/>
+      <Header/>
+      
       <FruitCarousel  />
 
       {selectedCard ? (
@@ -35,12 +30,7 @@ useEffect(() => {
       ) : null}
 
       <FruitList
-        fruits={fruits}
-        setFruits={setFruits}
-        setQuery={setQuery}
-        query={query}
-        results={results}
-        setResults={setResults}/>
+        />
     </div>
   );
 }
