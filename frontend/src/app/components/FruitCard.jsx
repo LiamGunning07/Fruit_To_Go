@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 
 export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit}) {
-  const { cart, setCart, selectedCard, setSelectedCard, fruits } = useGlobalState();
+  const { cart, setCart, selectedCard, setSelectedCard, fruits, setFruits } = useGlobalState();
 
   
 
@@ -34,7 +34,7 @@ export default function FruitCard({ name, price, img, description, product_id, q
 
 
   return (
-        <div className={styles.container} onClick={() => selectCard(product_id, fruits, setSelectedCard)}>
+        <div className={styles.container} onClick={() => selectCard(product_id, fruits, setSelectedCard, setFruits)}>
           <h1 className={styles.title}>{name}</h1>
           <h2 className={styles.price}>${price}
             <div className={styles.unit}> /{quantityPerUnit}  </div>
