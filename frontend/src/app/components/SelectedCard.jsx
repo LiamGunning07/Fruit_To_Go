@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGlobalState } from "../context/GlobalStateContext";
 import { addToCart, saveCartToBackend, showPopup } from "../helpers/functions";
 import styles from '../styles/SelectedCard.module.css';
@@ -11,15 +12,20 @@ export default function SelectedCard() {
     return <p>No fruit selected. Please select a fruit to view details.</p>;
   }
 
-  const { id: product_id, name, price, description, img, quantityPerUnit } = selectedCard;
+  const { id: product_id, name, price, description, img, quantity_per_unit } = selectedCard;
+
+
+  useEffect(() => {
+    console.log('Selected Card Info', selectedCard)
+  },[selectedCard])
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{name}</h1>
-      {img && <img src={img} className={styles.img} alt={name} />} {/* Handle if img exists */}
+      <img src={img} className={styles.img} alt={name} /> {/* Handle if img exists */}
       <p className={styles.description}>{description}</p>
       <h2 className={styles.price}>${price}
-        <span className={styles.unit}> / {quantityPerUnit}</span>
+        <span className={styles.unit}> / {quantity_per_unit}</span>
       </h2>
       <button className={styles.addToCart} onClick={(e) => {
         addToCart(e, { product_id, name, price, quantityPerUnit }, cart, setCart, saveCartToBackend)

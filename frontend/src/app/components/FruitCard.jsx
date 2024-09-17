@@ -1,7 +1,7 @@
 'use client'
 import styles from '../styles/FruitCard.module.css'
 import { useGlobalState } from '../context/GlobalStateContext';
-import {showPopup, saveCartToBackend, addToCart, selectCard} from '../helpers/functions'
+import {showPopup, saveCartToBackend, addToCart, } from '../helpers/functions'
 
 export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit, onClick}) {
   const { cart, setCart, selectedCard, setSelectedCard, fruits, setFruits } = useGlobalState();
