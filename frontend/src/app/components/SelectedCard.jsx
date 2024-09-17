@@ -1,4 +1,5 @@
 import { useGlobalState } from "../context/GlobalStateContext";
+import { addToCart, saveCartToBackend, showPopup } from "../helpers/functions";
 import styles from '../styles/SelectedCard.module.css';
 import '../styles/globals.css'
 
@@ -10,27 +11,7 @@ export default function SelectedCard() {
     return <p>No fruit selected. Please select a fruit to view details.</p>;
   }
 
-  const { id, name, price, description, img, quantityPerUnit } = selectedCard;
-
-  const addToCart = () => {
-    const existingItem = cart.find(item => item.product_id === id);
-
-    let updatedCart;
-    if (existingItem) {
-      // Update quantity if the item is already in the cart
-      updatedCart = cart.map(item =>
-        item.product_id === id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-    } else {
-      // Add a new item to the cart if it's not already there
-      updatedCart = [...cart, { product_id: id, name, price, quantity: 1, quantityPerUnit }];
-    }
-
-    // Update the cart in global state
-    setCart(updatedCart);
-  };
+  const { id: product_id, name, price, description, img, quantityPerUnit } = selectedCard;
 
   return (
     <div className={styles.container}>
@@ -40,7 +21,11 @@ export default function SelectedCard() {
       <h2 className={styles.price}>${price}
         <span className={styles.unit}> / {quantityPerUnit}</span>
       </h2>
-      <button className={styles.addToCart} onClick={addToCart}>
+      <button className={styles.addToCart} onClick={(e) => {
+        addToCart(e, { product_id, name, price, quantityPerUnit }, cart, setCart, saveCartToBackend)
+        showPopup(`${name} Added to Cart!`);
+        }}
+        >
         Add to Cart
       </button>
     </div>

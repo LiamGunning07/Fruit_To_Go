@@ -2,8 +2,6 @@
 import styles from '../styles/FruitCard.module.css'
 import { useGlobalState } from '../context/GlobalStateContext';
 import {showPopup, saveCartToBackend, selectCard} from '../helpers/functions'
-import { useEffect } from 'react';
-
 
 export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit, onClick}) {
   const { cart, setCart, selectedCard, setSelectedCard, fruits, setFruits } = useGlobalState();
@@ -30,7 +28,6 @@ export default function FruitCard({ name, price, img, description, product_id, q
   };
   
   
-
   return (
         <div className={styles.container} onClick={onClick}>
           <h1 className={styles.title}>{name}</h1>

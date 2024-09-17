@@ -13,7 +13,6 @@ export async function fetchAllFruits(setFruits) {
     console.error('Error fetching products:', error);
   }
 }
-
 export async function fetchAllFruitsAscending(setFruits) {
   try {
     const response = await fetch('http://localhost:3001/api/fruits/price/asc');
@@ -29,7 +28,6 @@ export async function fetchAllFruitsAscending(setFruits) {
     console.error('Error fetching products:', error);
   }
 }
-
 export async function fetchAllFruitsDescending(setFruits) {
   try {
     const response = await fetch('http://localhost:3001/api/fruits/price/desc');
@@ -45,7 +43,6 @@ export async function fetchAllFruitsDescending(setFruits) {
     console.error('Error fetching products:', error);
   }
 }
-
 export function showPopup(message) {
   const popup = document.getElementById('popup');
   const popupMessage = document.getElementById('popup-message');
@@ -61,11 +58,9 @@ export function showPopup(message) {
     popup.style.display = 'none';
   }, 2000);
 }
-
 export function generateSessionId(){
   return 'sess_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
 };
-
 export function checkOrCreateSessionId() {
   // Retrieve sessionId from cookie, or create a new one if not found
   const sessionId = document.cookie.split('; ').find(row => row.startsWith('sessionId='))?.split('=')[1];
@@ -76,7 +71,6 @@ export function checkOrCreateSessionId() {
   }
   return sessionId;
 }
-
 export const saveCartToBackend = (cart) => {
   const sessionId = checkOrCreateSessionId(); // Ensure sessionId is created
 
@@ -96,7 +90,6 @@ export const saveCartToBackend = (cart) => {
     })
     .catch(err => console.error('Error syncing cart:', err));
 };
-
 export const loadCart = async (setCart) => {
   try {
     const response = await fetch('http://localhost:3001/api/session/load-cart', {
@@ -109,7 +102,6 @@ export const loadCart = async (setCart) => {
     console.error('Error loading cart:', error);
   }
 };
-
 export const selectCard = async (product_id, fruits, setSelectedCard, setFruits) => {
   console.log("Product ID:", product_id);
 
@@ -135,6 +127,32 @@ export const selectCard = async (product_id, fruits, setSelectedCard, setFruits)
     console.log("Product not found with ID:", product_id);
   }
 };
+// cartHelpers.js
+// helpers/functions.js
+export const addToCart = (e, product, cart, setCart, saveCartToBackend) => {
+  e.stopPropagation();
+
+  // Destructure only the fields that are necessary
+  const { product_id, name, price, quantityPerUnit } = product;
+
+  const existingItem = cart.find(item => item.product_id === product_id);
+
+  let updatedCart;
+  if (existingItem) {
+    updatedCart = cart.map(item =>
+      item.product_id === product_id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+  } else {
+    updatedCart = [...cart, { product_id, name, price, quantity: 1, quantityPerUnit }];
+  }
+
+  // Update cart state and then sync to backend after the state has been updated
+  setCart(updatedCart);
+  saveCartToBackend(updatedCart); // Call after updating the cart
+};
+
 
 
 
