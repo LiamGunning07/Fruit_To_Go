@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 600px; /* This makes sure the container takes up the full height of the viewport */
+  width: 80%;
+  margin: 50px auto; /* Centers the container horizontally */
+  text-align: center; /* Ensures the text inside the container is centered */
+  background-color: white;
+  border: 3px solid transparent;
+  border-color: #AEB02A;
+  border-radius: 10px;
+}
+
+.title {
+  color: black;
+}

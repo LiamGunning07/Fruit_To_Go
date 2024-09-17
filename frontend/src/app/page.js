@@ -23,11 +23,13 @@ useEffect(() => {
     <div>
       <Header/>
       
-      <FruitCarousel  />
+      
 
       {selectedCard ? (
         <SelectedCard />  // Render the SelectedCard component
-      ) : null}
+      ) : 
+      <FruitCarousel  />
+      }
 
       <FruitList
         />

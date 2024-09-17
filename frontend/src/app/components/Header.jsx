@@ -10,11 +10,12 @@ import FilterDropDown from './FilterDropDown';
 
 export default function Header () {
   const router = useRouter();
-  const {query, setQuery, results, setResults, setFruits, cart} = useGlobalState()
+  const {query, setQuery, results, setResults, setFruits, cart, setSelectedCard} = useGlobalState()
 
   const handleFruitClick = () => {
-    setResults([])
+    setResults([]);
     setQuery('');
+    setSelectedCard(null);
     router.push('/fruit')
   }
 
@@ -22,12 +23,14 @@ export default function Header () {
     fetchAllFruits(setFruits)
     setResults([])
     setQuery('');
+    setSelectedCard(null);
     router.push('/')
   }
 
   const handleCartClick = () => {
     setQuery('');
     setResults([])
+    setSelectedCard(null);
     router.push('/cart')
   }
 

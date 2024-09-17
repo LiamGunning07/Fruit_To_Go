@@ -1,5 +1,6 @@
 import { useGlobalState } from "../context/GlobalStateContext";
 import styles from '../styles/SelectedCard.module.css';
+import '../styles/globals.css'
 
 export default function SelectedCard() {
   const { selectedCard, setCart, cart } = useGlobalState();
@@ -37,7 +38,7 @@ export default function SelectedCard() {
       {img && <img src={img} className={styles.img} alt={name} />} {/* Handle if img exists */}
       <p className={styles.description}>{description}</p>
       <h2 className={styles.price}>${price}
-        <span className={styles.unit}> / {quantityPerUnit || 'unit'}</span>
+        <span className={styles.unit}> / {quantityPerUnit}</span>
       </h2>
       <button className={styles.addToCart} onClick={addToCart}>
         Add to Cart
