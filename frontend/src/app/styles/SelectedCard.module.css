@@ -4,44 +4,88 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  max-height: 600px; /* This makes sure the container takes up the full height of the viewport */
+  max-height: 600px; 
   width: 80%;
-  margin: 50px auto; /* Centers the container horizontally */
-  text-align: center; /* Ensures the text inside the container is centered */
+  padding: 40px;
+  margin: 50px auto; 
+  
   background-color: white;
   border: 3px solid transparent;
   border-color: #AEB02A;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Title styling */
 .title {
-  color: black;
-  font-size: 5.0em;
+  font-size: 5rem; /* Increased font size */
+  font-weight: 600;
+  color:black;
+  text-align: left;
+  margin-bottom: 20px;
+  align-self: flex-start;
 }
 
+/* Image styling - large and centered */
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  max-height: 500px; /* Larger image size */
+}
+
+/* Description styling */
 .description {
-  font-size: 2.5em;
+  font-size: 1.2rem; /* Increased font size */
+  color:black;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
+/* Price and unit styling */
 .price {
-  font-size: 2.5em;
+  font-size: 1.8rem; /* Increased font size */
+  font-weight: bold;
+  text-align: center;
+  margin: 15px 0;
+  color:black;
 }
-.addToCart:hover {
- 
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: black;
-  opacity: 0.8;
-  color: white;
-  transition: all 0.3s ease-in-out; /* Added transition for a smooth effect */
+
+.unit {
+  font-size: .9rem; /* Increased font size */
+  color: #777;
+  margin-left: 5px;
 }
 
 .addToCart {
-  background-color:white;
-  font-size: 2.0em;
+  display: inline-block;
+  background-color: black;
+  opacity: 0.6;
+  color: white;
+  border: none;
   border-radius: 5px;
-  border: 1px;
+  padding: 15px 20px; /* Slightly larger button */
+  font-size: 1.2rem; /* Increased font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, color 0.9s ease; /* Combined transitions */
+  margin-top: auto; /* Ensures the button stays at the bottom */
+  align-self: center; /* Center the button horizontally */
 }
 
+.addToCart:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+
+.addToCart:focus {
+  outline: none;
+}

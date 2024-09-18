@@ -28,7 +28,7 @@ export default function SelectedCard() {
         <span className={styles.unit}> / {quantity_per_unit}</span>
       </h2>
       <button className={styles.addToCart} onClick={(e) => {
-        addToCart(e, { product_id, name, price, quantityPerUnit }, cart, setCart, saveCartToBackend)
+        addToCart(e, { product_id, name, price, quantity_per_unit }, cart, setCart, saveCartToBackend)
         showPopup(`${name} Added to Cart!`);
         }}
         >
