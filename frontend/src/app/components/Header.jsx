@@ -34,6 +34,10 @@ export default function Header () {
     router.push('/cart')
   }
 
+  const handleAboutUsClick = () => {
+    router.push('/about')
+  }
+
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
 
@@ -52,6 +56,9 @@ export default function Header () {
             setResults={setResults}/>
         </div>
           <ul className={styles.links}> 
+            <li onClick={handleAboutUsClick}>
+              <u> About Us </u>
+            </li>
             <li onClick={handleFruitClick}>
               <FontAwesomeIcon icon={faAppleWhole} />
             <u> Fruit </u></li>

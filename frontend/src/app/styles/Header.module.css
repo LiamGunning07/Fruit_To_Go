@@ -2,7 +2,8 @@
   display: flex;
   font-family: 'Roboto' ;
   font-size: 36px;
-  background-color: #AEB02A;
+  /* background-color: #AEB02A; */
+  background-image: url('../assets/openart-image_KOFnIyDD_1720625284778_raw.jpg');
   color: white;
   justify-content: space-between;
   align-items: center;
@@ -24,6 +25,7 @@
  padding-right: 30px;
  cursor: pointer;
  transition: transform 0.3s ease;
+ text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Proper use of text-shadow */
 }
 
 .links li:hover {
@@ -42,6 +44,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Proper use of text-shadow */
 }
 
 .login {
