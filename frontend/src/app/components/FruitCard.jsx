@@ -10,11 +10,12 @@ export default function FruitCard({ name, price, img, description, product_id, q
   return (
         <div className={styles.container} onClick={onClick}>
           <h1 className={styles.title}>{name}</h1>
+          
+          <img src={img} className={styles.img} alt={name} />
           <h2 className={styles.price}>${price}
             <div className={styles.unit}> /{quantityPerUnit}  </div>
           </h2>
-          <img src={img} className={styles.img} alt={name} />
-          <p className={styles.description}>{description}</p>
+          {/* <p className={styles.description}>{description}</p> */}
           <div className={styles.overlay}>
             <button className={styles.addToCart} onClick={(e) => {
                addToCart(e, { product_id, name, price, quantityPerUnit }, cart, setCart, saveCartToBackend)

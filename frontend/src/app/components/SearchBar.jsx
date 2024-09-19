@@ -1,4 +1,5 @@
 import { useGlobalState } from "../context/GlobalStateContext";
+import { showPopup } from "../helpers/functions";
 import styles from "../styles/SearchBar.module.css";
 
 export default function SearchBar() {
@@ -12,19 +13,26 @@ const handleInputChange = (event) => {
     console.log("Searching for:", query);
 
     try {
-        const response = await fetch(`http://localhost:3001/api/search?q=${query}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-       
-        const data = await response.json();
+      const response = await fetch(`http://localhost:3001/api/search?q=${query}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.length === 0) {
+        // If no results found, show the popup with a message
+        showPopup("No items found for your search.");
+      } else {
         setResults(data);
-        setFruits(data)
+        setFruits(data);
+      }
     } catch (error) {
-        console.error("Error fetching search results:", error);
-        setResults();  // Clear results on error
+      console.error("Error fetching search results:", error);
+      setResults([]); // Clear results on error
+      showPopup("An error occurred while fetching search results.");
     }
-};
+  };
 
 
   return (

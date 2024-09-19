@@ -12,7 +12,7 @@ export default function Fruit () {
 const { fruits, setFruits, selectedCard, setSelectedCard } = useGlobalState()
 
 return (
-  <>
+  <div>
     <Header/>
     <div className={styles.heading}>
       <h1>All Fruits</h1>
@@ -22,6 +22,6 @@ return (
         <SelectedCard />  // Render the SelectedCard component
       ) : null}
       <FruitList />
-  </>
+  </div>
 );
 }
