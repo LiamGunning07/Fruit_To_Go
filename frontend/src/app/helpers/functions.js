@@ -127,8 +127,6 @@ export const selectCard = async (product_id, fruits, setSelectedCard, setFruits)
     console.log("Product not found with ID:", product_id);
   }
 };
-// cartHelpers.js
-// helpers/functions.js
 export const addToCart = (e, product, cart, setCart, saveCartToBackend) => {
   e.stopPropagation();
 
