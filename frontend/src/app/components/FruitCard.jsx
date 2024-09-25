@@ -2,11 +2,21 @@
 import styles from '../styles/FruitCard.module.css'
 import { useGlobalState } from '../context/GlobalStateContext';
 import {showPopup, saveCartToBackend, addToCart, } from '../helpers/functions'
+import { useEffect } from 'react';
 
 export default function FruitCard({ name, price, img, description, product_id, quantityPerUnit, onClick}) {
   const { cart, setCart, selectedCard, setSelectedCard, fruits, setFruits } = useGlobalState();
 
   
+  useEffect(() => {
+    if (selectedCard) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      }); 
+    }
+  }, [selectedCard]);
+
   return (
         <div className={styles.container} onClick={onClick}>
           <h1 className={styles.title}>{name}</h1>
