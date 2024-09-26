@@ -1,10 +1,14 @@
 DROP TABLE IF EXISTS orders CASCADE;
 
+ALTER TABLE orders ADD COLUMN shipping_address TEXT;
+ALTER TABLE orders ADD COLUMN contact_number VARCHAR(20);
+
+
 CREATE TABLE orders (
-    order_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    total_price DECIMAL(10, 2) NOT NULL,
-    order_status VARCHAR(50) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    id SERIAL PRIMARY KEY,
+    cart_id INTEGER NOT NULL REFERENCES carts(id) ON DELETE CASCADE,
+    session_id VARCHAR(255) NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

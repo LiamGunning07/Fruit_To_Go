@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS cart_items CASCADE;
 
 CREATE TABLE cart_items (
-    cart_item_id INT AUTO_INCREMENT PRIMARY KEY,
-    cart_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    FOREIGN KEY (cart_id) REFERENCES Cart(cart_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+    id SERIAL PRIMARY KEY,
+    cart_id INTEGER NOT NULL REFERENCES cart(id) ON DELETE CASCADE,
+    product_id INTEGER NOT NULL REFERENCES products(id),
+    quantity INT NOT NULL DEFAULT 1,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT unique_cart_product UNIQUE (cart_id, product_id)
 );
