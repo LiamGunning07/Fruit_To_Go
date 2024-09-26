@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getCartFromDB, saveCartToDB } = require('../db/queries/helpers');
+const { getCartFromDB, saveCartToDB, checkout } = require('../db/queries/helpers');
 
 // Load cart for the given sessionId
 router.get('/load-cart', (req, res) => {

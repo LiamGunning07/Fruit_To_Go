@@ -164,7 +164,7 @@ const checkout = async (sessionId) => {
 
     // Step 1: Retrieve Cart and Cart Items
     const cartResult = await client.query(
-      'SELECT id FROM carts WHERE session_id = $1',
+      'SELECT id FROM cart WHERE session_id = $1',
       [sessionId]
     );
     if (cartResult.rows.length === 0) {
