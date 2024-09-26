@@ -1,3 +1,4 @@
+/* Existing Styles */
 .title {
   color: black;
 }
@@ -47,30 +48,35 @@
   opacity: 1;
 }
 
+/* Updated Styles for Add to Cart Button */
 .addToCart {
   position: absolute;
   bottom: 20px; /* Adjusted position */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Added transform transition */
   width: 50%;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: black;
+  background-color: transparent; /* Default background */
   color: white;
 }
 
 .container:hover .addToCart {
   opacity: 0.6;
+  background-color: black
 }
 
 .addToCart:hover {
-  transform: translateX(-50%) scale(1.1);
+  transform: translateX(-50%) scale(1.05);
+  opacity: .8;
+  background-color: black
 }
 
+/* Other Styles */
 .popup {
   position: fixed;
   top: 120px;

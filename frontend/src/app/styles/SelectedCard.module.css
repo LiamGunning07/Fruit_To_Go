@@ -81,7 +81,7 @@
 }
 
 .addToCart:hover {
-  opacity: 1;
+  opacity: .8;
   transform: scale(1.1);
 }
 
