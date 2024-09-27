@@ -1,6 +1,8 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 35px;
   margin: auto;
 }
@@ -9,4 +11,9 @@
   font-size: 5rem;
   color: black;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Proper use of text-shadow */
+}
+
+.p {
+  font-size: 2rem;
+  max-width: 1200px;
 }
