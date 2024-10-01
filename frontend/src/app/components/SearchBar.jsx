@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useGlobalState } from "../context/GlobalStateContext";
 import { showPopup } from "../helpers/functions";
+import { handleInputChange } from "../helpers/search"
 import styles from "../styles/SearchBar.module.css";
 import Fuse from "fuse.js";
 
@@ -61,37 +62,14 @@ export default function SearchBar() {
     }
   }, [debouncedQuery, fuse]);
 
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
-
-  // Handle 'Search' button click
-  const handleSearchClick = async () => {
-    console.log("Performing full search for:", query);
-
-    try {
-      const response = await fetch(`http://localhost:3001/api/search?q=${encodeURIComponent(query)}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (data.length === 0) {
-        showPopup("No items found for your search.");
-      }
-      setResults(data);
-    } catch (error) {
-      console.error("Error performing full search:", error);
-      showPopup("An error occurred while performing full search.");
-    }
-  };
+  
 
   return (
     <div className={styles.container}>
       <input
         type="text"
         value={query || ''}
-        onChange={handleInputChange}
+        onChange={(e) => handleInputChange(e, setQuery)}
         placeholder="Search..."
         className={styles.searchbar}
       />

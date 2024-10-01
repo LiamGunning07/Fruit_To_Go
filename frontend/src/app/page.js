@@ -10,6 +10,7 @@ import { useGlobalState } from './context/GlobalStateContext';
 
 
 export default function Home() {
+
 const {fruits, setFruits, query, setQuery, results, setResults, selectedCard } = useGlobalState()
 
 useEffect(() => {
@@ -22,9 +23,6 @@ useEffect(() => {
   return (
     <div>
       <Header/>
-      
-      
-
       {selectedCard ? (
         <SelectedCard />  // Render the SelectedCard component
       ) : 

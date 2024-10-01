@@ -37,3 +37,15 @@
   font-size: 12px;
   color: white;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .searchbar {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

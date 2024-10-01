@@ -79,3 +79,22 @@
   width: 50px;
   height: 50px;
 }
+
+/* styles/Header.module.css */
+
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}

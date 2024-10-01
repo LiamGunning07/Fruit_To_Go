@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from 'next/navigation';
 import SearchBar from './SearchBar';
+import MobileSearchBar from './MobileSearchBar';
 import styles from '../styles/Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,7 @@ import { fetchAllFruits } from '../helpers/functions';
 
 export default function Header () {
   const router = useRouter();
+  
   const {query, setQuery, results, setResults, setFruits, cart, setSelectedCard} = useGlobalState()
 
   const handleFruitClick = () => {
@@ -48,11 +50,16 @@ export default function Header () {
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
         <div>
+          <div className={styles.mobile}> 
+            <MobileSearchBar />
+          </div>
+        <div className={styles.desktop}>
           <SearchBar 
             setQuery={setQuery}
             query={query}
             results={results}
             setResults={setResults}/>
+          </div>
         </div>
           <ul className={styles.links}> 
             <li onClick={handleAboutUsClick}>
