@@ -1,7 +1,6 @@
 const handleInputChange = (e, setQuery) => {
   setQuery(e.target.value);
 };
-
 // Handle 'Search' button click
 const handleSearchClick = async () => {
   console.log("Performing full search for:", query);
@@ -22,5 +21,11 @@ const handleSearchClick = async () => {
     showPopup("An error occurred while performing full search.");
   }
 };
+const handleMobileSearchClick = (setIsExpanded) => {
+  setIsExpanded(true);
+};
 
-module.exports = { handleInputChange}
+const handleInputBlur = (setIsExpanded) => {
+   setIsExpanded(false);
+};
+module.exports = { handleInputChange, handleMobileSearchClick, handleInputBlur}

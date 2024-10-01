@@ -15,6 +15,7 @@ export function GlobalStateProvider({ children }) {
   const [query, setQuery] = useState('');
   const [selectedOption, setSelectedOption] = useState('')
   const [selectedCard, setSelectedCard] = useState(null)
+  const [isExpanded, setIsExpanded] = useState(false);
   
   useEffect(() => {
     loadCart(setCart); // Load the cart on app initialization
@@ -35,7 +36,9 @@ export function GlobalStateProvider({ children }) {
         selectedOption, 
         setSelectedOption,
         selectedCard,
-        setSelectedCard
+        setSelectedCard,
+        isExpanded,
+        setIsExpanded
         // Add more state values and setters here
       }}
     >

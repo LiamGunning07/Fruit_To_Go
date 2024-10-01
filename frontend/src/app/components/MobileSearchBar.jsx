@@ -3,15 +3,15 @@ import styles from '../styles/MobileSearchBar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useGlobalState } from '../context/GlobalStateContext';
-import { handleInputChange } from '../helpers/search';
+import { handleInputBlur, handleInputChange, handleMobileSearchClick } from '../helpers/search';
 
 export default function MobileSearchBar () {
 
-  const { query, setQuery } = useGlobalState();
+  const { query, setQuery, isExpanded, setIsExpanded } = useGlobalState();
 
   return (
     <div className={styles.searchbox}>
-      <button className={styles.btnsearch}>
+      <button className={styles.btnsearch} onClick={() => handleMobileSearchClick(setIsExpanded)}>
         <i> <FontAwesomeIcon icon={faMagnifyingGlass} /> </i>
       </button>
       <input 
@@ -19,6 +19,7 @@ export default function MobileSearchBar () {
         className={styles.inputsearch}
         value={query || ''}
         onChange={(e) => handleInputChange(e, setQuery)}
+        onBlur={() => handleInputBlur(setIsExpanded)}
         placeholder="Search..."
       />
     </div>
