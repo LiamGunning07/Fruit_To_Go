@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import { useGlobalState } from '../context/GlobalStateContext';
 import { fetchAllFruits } from '../helpers/functions';
+import MobileDropDown from './MobileDropDown';
 
 export default function Header () {
   const router = useRouter();
@@ -75,6 +76,7 @@ export default function Header () {
                 totalItems > 0 && <span className={styles.count}> {totalItems} </span>
               }
             </li>
+            <MobileDropDown />
           </ul>
       </div>
     </div>

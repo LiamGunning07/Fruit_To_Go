@@ -1,14 +1,11 @@
 'use client'
 import styles from '../styles/FilterDropDown.module.css'
-import { useState } from 'react';
 import { useGlobalState } from "../context/GlobalStateContext";
 import { fetchAllFruitsAscending, fetchAllFruitsDescending } from '../helpers/functions';
 
 export default function FilterDropDown() {
 
-  const { selectedOption, setSelectedOption, setFruits, setSelectedCard } = useGlobalState('');
-
-  
+  const { selectedOption, setSelectedOption, setFruits, setSelectedCard } = useGlobalState();
 
   const handleFilterChange = async (event) => {
     const value = event.target.value;
