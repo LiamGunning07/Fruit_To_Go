@@ -1,9 +1,9 @@
 .header {
   display: flex;
-  font-family: 'Roboto' ;
+  font-family: 'Roboto';
   font-size: 36px;
-  /* background-color: #AEB02A; */
   background-image: url('../assets/openart-image_KOFnIyDD_1720625284778_raw.jpg');
+  background-size: cover; /* Ensure the image covers the entire header */
   color: white;
   justify-content: space-between;
   align-items: center;
@@ -21,30 +21,55 @@
 }
 
 .links li {
- font-family: 'Roboto';
- padding-right: 30px;
- cursor: pointer;
- transition: transform 0.3s ease;
- text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Proper use of text-shadow */
+  padding-right: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .links li:hover {
   transform: scale(1.2);
 }
 
-.title p {
-  font-size: 20px;
-  font-family: 'Roboto';
-  margin: 0;
-}
-
 .title {
   display: flex;
   flex-direction: column;
+  font-size: 1.0rem;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Proper use of text-shadow */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.title p {
+  margin: 0;
+}
+
+.logo {
+  display: inline-block;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 50%; /* Perfect circle */
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 50px; /* Vertically centers the text */
+}
+
+.count {
+  color: black;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login {
@@ -52,35 +77,10 @@
   flex-direction: row;
 }
 
-.login li{
+.login li {
   padding-left: 10px;
   padding-right: 25px;
 }
-
-.logo {
-  display: inline-block;
-  font-size: 0.75em; /* Adjust size as needed */
-  font-weight: bold;
-  color: #333;
-  background-color: #f0f0f0;
-  padding: 5px 10px;
-  border-radius: 80%;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-  line-height: 50px; /* Centers the number within the circle */
-}
-
-.count {
-  color: black;
-  background-color: #f0f0f0;
-  padding: 5px 10px;
-  border-radius: 80%;
-  width: 50px;
-  height: 50px;
-}
-
-/* styles/Header.module.css */
 
 .desktop {
   display: block;
@@ -88,13 +88,65 @@
 
 .mobile {
   display: none;
+  font-size: .8rem;
+}
+
+.barsButton {
+  font-size: 24px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bars {
+  font-size: 24px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  margin: 20px;
+  right: 10px;
+  top: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  list-style: none;
+  padding: 0;
+  width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownMenu li {
+  font-size: .8rem;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
   .desktop {
     display: none;
   }
+
   .mobile {
     display: block;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .barsButton {
+    align-self: flex-end;
+  }
+
+  .dropdownMenu {
+    right: 10px;
   }
 }

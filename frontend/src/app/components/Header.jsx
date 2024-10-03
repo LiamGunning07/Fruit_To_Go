@@ -62,6 +62,10 @@ export default function Header () {
             setResults={setResults}/>
           </div>
         </div>
+        <div className={styles.mobile}>
+          <MobileDropDown />
+        </div>
+        <div className={styles.desktop}>
           <ul className={styles.links}> 
             <li onClick={handleAboutUsClick}>
               <u> About Us </u>
@@ -76,8 +80,8 @@ export default function Header () {
                 totalItems > 0 && <span className={styles.count}> {totalItems} </span>
               }
             </li>
-            <MobileDropDown />
           </ul>
+        </div>
       </div>
     </div>
   );
