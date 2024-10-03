@@ -2,6 +2,7 @@ import { useGlobalState } from "../context/GlobalStateContext";
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styles from '../styles/MobileDropDown.module.css';
+import '../styles/globals.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 

@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import SearchBar from './SearchBar';
 import MobileSearchBar from './MobileSearchBar';
 import styles from '../styles/Header.module.css'
+import '../styles/globals.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faBottleDroplet, faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import { useGlobalState } from '../context/GlobalStateContext';
@@ -50,7 +51,7 @@ export default function Header () {
           <h1> Fruit <span className={styles.logo}> 2 </span> Go</h1>
           <p> "Fresh Fruit, Delivered Fast" </p>
         </div>
-        <div>
+        <div className={styles.search}>
           <div className={styles.mobile}> 
             <MobileSearchBar />
           </div>
@@ -73,7 +74,7 @@ export default function Header () {
             <li onClick={handleFruitClick}>
               <FontAwesomeIcon icon={faAppleWhole} />
             <u> Fruit </u></li>
-            <li onClick={handleCartClick}>
+            <li onClick={handleCartClick} className={styles.cart}>
               <FontAwesomeIcon icon={faCartShopping}/> 
               <u> Cart </u>
               {

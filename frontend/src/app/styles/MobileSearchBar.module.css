@@ -64,6 +64,11 @@
   opacity: 1;
 }
 
+.searchcontainer {
+  display: flex;
+  align-items: center;
+}
+
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
   .btnsearch {
@@ -88,5 +93,10 @@
   .inputsearch {
     height: 40px;
     font-size: 15px;
+  }
+
+  .searchcontainer {
+    display: flex;
+    align-items: center;
   }
 }
