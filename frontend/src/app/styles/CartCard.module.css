@@ -86,4 +86,16 @@
   margin-left: 5px; /* Adds spacing between the price/unit and the quantity */
 }
 
+@media (max-width: 650px) {
+  .title {
+    font-size: 1rem;
+    margin-right: 2px;
+  }
+  .bold{
+    margin-left: 2px;
+  }
+  .quantity{
+    padding: 5px;
+  }
+}
 

@@ -25,13 +25,14 @@
   color: #fff;
   opacity: 0; /* Initially hidden */
   pointer-events: none; /* Prevent interaction */
+  font-weight: 300;
 }
 
 .inputsearch::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: .8rem;
+  color: rgb(255, 255, 255);
+  font-size: .85rem;
   letter-spacing: 2px;
-  font-weight: 100;
+  
 }
 
 .btnsearch {

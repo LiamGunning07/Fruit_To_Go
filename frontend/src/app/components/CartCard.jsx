@@ -24,8 +24,6 @@ const deleteItem = () => {
   .then(data => console.log(data.message))
   .catch(error => console.error('Error syncing cart:', error));
 };
-
-
 const increaseQuantity = () => {
   const updatedCart = cart.map(item => {
     if (item.product_id === product_id) {
@@ -48,8 +46,6 @@ const increaseQuantity = () => {
   .then(data => console.log(data.message))
   .catch(error => console.error('Error syncing cart:', error));
 };
-
-
 const decreaseQuantity = () => {
   const updatedCart = cart.reduce((acc, item) => {
     if (item.product_id === product_id) {
