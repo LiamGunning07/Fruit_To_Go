@@ -1,13 +1,20 @@
-.searchbox {
-  width: fit-content;
-  height: fit-content;
+.searchcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the search bar */
+  width: 100%;
   position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+.searchcontainer.expanded {
+  justify-content: center; /* Maintain centering when expanded */
 }
 
 .inputsearch {
   height: 50px;
-  width: 50px; /* Initially keep the width small (hidden) */
-  border-style: none;
+  width: 50px; /* Initially small */
+  border: none;
   padding: 10px;
   font-size: 18px;
   letter-spacing: 2px;
@@ -15,10 +22,9 @@
   border-radius: 25px;
   transition: all 0.5s ease-in-out;
   background-color: #22a6b3;
-  padding-right: 40px;
   color: #fff;
   opacity: 0; /* Initially hidden */
-  pointer-events: none; /* Prevent focus until button is clicked */
+  pointer-events: none; /* Prevent interaction */
 }
 
 .inputsearch::placeholder {
@@ -29,52 +35,43 @@
 }
 
 .btnsearch {
-  width: 2.5rem; /* Increased size */
+  width: 2.5rem;
   height: 2.5rem;
-  border-style: none;
-  font-size: 1.2rem; /* Adjust font size for the icon */
-  font-weight: bold;
-  outline: none;
+  border: none;
+  font-size: 1.2rem;
   cursor: pointer;
   border-radius: 50%;
-  position: absolute;
-  right: 0px;
   color: #ffffff;
   background-color: grey;
   transition: all 0.3s ease;
 }
 
-.btnsearch:focus ~ .inputsearch,
-.btnsearch:active ~ .inputsearch {
-  width: 12rem; /* Expands the search bar */
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.5s ease-in-out;
-  opacity: 1; /* Makes it visible */
-  pointer-events: all; /* Allows user interaction */
+.searchcontainer.expanded .btnsearch {
+  display: none; /* Hide button when expanded */
 }
 
-.inputsearch:focus {
-  width: 12rem;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.5s ease-in-out;
+.inputsearch {
+  width: 50px; /* Initial width when closed */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchcontainer.expanded .inputsearch {
+  width: 9rem; /* Expand when clicked */
   opacity: 1;
-}
-
-.searchcontainer {
-  display: flex;
-  align-items: center;
+  pointer-events: all;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
   .btnsearch {
-    width: 2.2rem; /* Slightly smaller circle */
+    width: 2.2rem; /* Slightly smaller button */
     height: 2.2rem;
-    font-size: 1.1rem; /* Slightly smaller icon */
+    font-size: 1.1rem;
   }
 
   .inputsearch {
@@ -85,18 +82,13 @@
 
 @media (max-width: 480px) {
   .btnsearch {
-    width: 2rem; /* Still large enough for comfortable interaction */
+    width: 2rem; /* Smaller button */
     height: 2rem;
-    font-size: 1rem; /* Slightly smaller icon */
+    font-size: 1rem;
   }
 
   .inputsearch {
     height: 40px;
     font-size: 15px;
-  }
-
-  .searchcontainer {
-    display: flex;
-    align-items: center;
   }
 }

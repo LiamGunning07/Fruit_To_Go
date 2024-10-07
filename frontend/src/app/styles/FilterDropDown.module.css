@@ -5,7 +5,9 @@
   width: fit-content;
 }
 
-
+.filter {
+  width: fit-content;
+}
 /* Styling for the select element */
 .dropdown select {
   appearance: none;

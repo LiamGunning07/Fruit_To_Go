@@ -23,7 +23,7 @@ export default function FilterDropDown() {
   return (
     <div className={styles.dropdown}>
       <select value={selectedOption} onChange={handleFilterChange}>
-        <option value="" disabled={!!selectedOption}>
+        <option className={styles.filter} value="" disabled={!!selectedOption}>
           Select a filter
         </option>
         <option value="price-asc">Price: Low to High</option>
