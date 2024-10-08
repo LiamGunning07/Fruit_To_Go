@@ -8,13 +8,13 @@
   width: 80%;
   padding: 40px;
   margin: 50px auto; 
-  
   background-color: white;
   border: 3px solid transparent;
   border-color:#75AC46;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.5rem;
 }
 
 .container:hover {
@@ -24,7 +24,7 @@
 
 /* Title styling */
 .title {
-  font-size: 5rem; /* Increased font size */
+  font-size: 3rem; /* Increased font size */
   font-weight: 600;
   color:black;
   text-align: left;
@@ -35,6 +35,7 @@
 /* Image styling - large and centered */
 .img {
   width: 100%;
+  font-size: .9rem;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
@@ -44,7 +45,7 @@
 
 /* Description styling */
 .description {
-  font-size: 1.2rem; /* Increased font size */
+  font-size: 1.1rem; /* Increased font size */
   color:black;
   text-align: center;
   margin-bottom: 25px;
@@ -52,7 +53,7 @@
 
 /* Price and unit styling */
 .price {
-  font-size: 1.8rem; /* Increased font size */
+  font-size: 1.0rem; /* Increased font size */
   font-weight: bold;
   text-align: center;
   margin: 15px 0;
@@ -73,7 +74,7 @@
   border: none;
   border-radius: 5px;
   padding: 15px 20px; /* Slightly larger button */
-  font-size: 1.2rem; /* Increased font size */
+  font-size: 1.0rem; /* Increased font size */
   cursor: pointer;
   transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, color 0.9s ease; /* Combined transitions */
   margin-top: auto; /* Ensures the button stays at the bottom */
@@ -88,4 +89,18 @@
 
 .addToCart:focus {
   outline: none;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    height: 200px;
+    
+  }
 }

@@ -45,14 +45,14 @@
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Added transform transition */
-  width: 50%;
+  width: 40%;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   background-color: transparent; /* Default background */
   color: white;
-  font-size: .9rem;
+  font-size: .8rem;
 }
 
 .container:hover .addToCart {
