@@ -25,11 +25,10 @@ export default function FruitCard({ name, price, img, description, product_id, q
           <h2 className={styles.price}>${price}
             <div className={styles.unit}> /{quantityPerUnit}  </div>
           </h2>
-          {/* <p className={styles.description}>{description}</p> */}
-          <div className={styles.overlay}>
+          <div >
             <button className={styles.addToCart} onClick={(e) => {
                addToCart(e, { product_id, name, price, quantityPerUnit }, cart, setCart, saveCartToBackend)
-              showPopup(`${name} Added to Cart!`);
+               showPopup(`${name} Added to Cart!`);
             }}
             >
               Add to Cart
