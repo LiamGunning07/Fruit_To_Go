@@ -1,7 +1,7 @@
 /* Existing Styles */
 .title {
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .container {
@@ -90,10 +90,12 @@
 }
 
 .unit {
-  font-size: .8rem;
+  font-size: .7rem;
   color: grey;
 }
-
+.price {
+  font-size: 1.3rem;
+}
 
 @media (max-width: 1024px) {
   .container .addToCart {
